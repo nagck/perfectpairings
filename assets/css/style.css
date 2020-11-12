@@ -1,0 +1,16 @@
+.column {
+    background-color: aquamarine;
+    margin: 10px;
+    text-align: center;
+}
+
+.colMiddle {
+    text-align: center;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+.navbar-item {
+    font-size: x-large;
+    font-weight: bolder;
+}
