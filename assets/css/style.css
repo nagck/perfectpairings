@@ -24,3 +24,18 @@
 .column {
     background-color: white;
 }
+
+.rows{
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #f1f1f1; /* Grey background */
+    padding: 50px 10px; /* Some padding */
+    color: black;
+    object-position: 0em; /* Fixed position - sit on top of the page */
+    top: 0;
+    width: 100%; /* Full width */
+    transition: 0.2s; /* Add a transition effect (when scrolling - and font size is decreased) */
+  }
