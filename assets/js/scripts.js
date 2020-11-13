@@ -3,15 +3,15 @@
 var mode = 0;
 //this does nothing at the moment
 
-var foodDropDown = document.querySelector(".foodDropDown");
-var drinkDropDown = document.querySelector(".drinkDropDown");
-//these variables target each dropdown menu for event listeners
+var foodList = document.querySelector(".foodList");
+var drinkList = document.querySelector(".drinkList");
+//these variables target each list for event listeners
 
 var dropDownItem = document.querySelector(".dropdown-item");
 //this does NOTHING at the moment
 
-var foodListTop = document.querySelector("#foodListTop");
-var drinkListTop = document.querySelector("#drinkListTop");
+// var foodListTop = document.querySelector("#foodListTop");
+// var drinkListTop = document.querySelector("#drinkListTop");
 //these variables are targets for the top of the menu, basically what is showing when the menu isn't clicked
 
 var modalMain = document.querySelector(".modal");
@@ -26,32 +26,7 @@ var listOfDrinks = ["Canadian (Beer)", "Whisky", "Corona", "Sapporo", "Wine"];
 
 //this function is called when a user selects an item from the dropdown, the choice is passed in and then this function matches the perfect drink
 function drinkMatch(food) {
-    var foodChoice = food;
-    if (foodChoice === "Steak") {
-        modalMain.classList.add("is-active");
-        modalImage.src = "";
-        //update image for modal to be recommendation;
-    }
-    if (foodChoice === "Wings") {
-        modalMain.classList.add("is-active");
-        modalImage.src = "";
-        //update image for modal to be recommendation;
-    }
-    if (foodChoice === "Burrito") {
-        modalMain.classList.add("is-active");
-        modalImage.src = "";
-        //update image for modal to be recommendation;
-    }
-    if (foodChoice === "Sushi") {
-        modalMain.classList.add("is-active");
-        modalImage.src = "";
-        //update image for modal to be recommendation;
-    }
-    if (foodChoice === "Cheese") {
-        modalMain.classList.add("is-active");
-        modalImage.src = "";
-        //update image for modal to be recommendation;
-    }
+    
 }
 
 //this is the same as drinkMatch, but does the opposite for when someone selects their drink of choice
@@ -62,22 +37,18 @@ function foodMatch (drink) {
 
 //EVENT LISTENERS -------------------------------------------------------------------------------------------------------------------------------
 
-foodDropDown.addEventListener("click", function (event) {
+foodList.addEventListener("click", function (event) {
     var element = event.target;
-    foodDropDown.classList.toggle("is-active");
-    if (element.matches("p")) {
-        foodListTop.textContent = element.textContent;
-        drinkMatch(element.textContent);
+    if (element.matches("img")) {
+        console.log(element.alt);
     }
 })
 
-drinkDropDown.addEventListener("click", function (event) {
+drinkList.addEventListener("click", function (event) {
     var element = event.target;
-    drinkDropDown.classList.toggle("is-active");
-    if (element.matches("p")) {
-        console.log(element);
-        drinkListTop.textContent = element.textContent;
-        mode = 1;
+    if (element.matches("img")) {
+        console.log(element.alt);
+
     }
 })
 
