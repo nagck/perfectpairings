@@ -20,7 +20,8 @@ var modalDelete = document.querySelector(".delete");
 var modalImage = document.querySelector(".matchImage");
 
 var modalGif = document.querySelector(".modalGif")
-var gifModalButton = document.querySelector('.is-success');
+var gifModalButton = document.querySelector(".is-success");
+var gifCloseButton = document.querySelector(".gifDelete");
 
 var listOfFood = ["Steak", "Wings", "Burrito", "Sushi", "Cheese"];
 var listOfDrinks = ["Canadian (Beer)", "Whisky", "Corona", "Sapporo", "Wine"];
@@ -220,6 +221,7 @@ modalDelete.addEventListener("click", function (event) {
     var element = event.target;
     if (element.matches("button")) {
         modalMain.classList.remove("is-active");
+        modalGif.classList.remove("is-active");
     }
 } )
 
