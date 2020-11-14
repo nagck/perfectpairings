@@ -16,6 +16,7 @@ var dropDownItem = document.querySelector(".dropdown-item");
 
 var modalMain = document.querySelector(".modal");
 var modalClose = document.querySelector(".modal-close");
+var modalDelete = document.querySelector(".delete");
 var modalImage = document.querySelector(".matchImage");
 
 var listOfFood = ["Steak", "Wings", "Burrito", "Sushi", "Cheese"];
@@ -78,11 +79,11 @@ function foodMatch (drink) {
 //FETCH CALLS--------------------------------------------------------------------------------------------------------------------------------------
 function renderGifs(){ 
 
-    var searchTerm = document.querySelector("#search").value
+    // var searchTerm = document.querySelector("#search").value;
     //var search = "";
     
     //--fetch API key
-    fetch('https://api.giphy.com/v1/gifs/search?q='+""+"&api_key=fhyjxSw2icjRND3sWkVDSIduWRwkEPsI&limit=1")
+    fetch("https://api.giphy.com/v1/gifs/search?q='+" + "CAT" + "&api_key=fhyjxSw2icjRND3sWkVDSIduWRwkEPsI&limit=1")
     .then(function(response){
     //--response and return  
         return response.json()
@@ -95,7 +96,7 @@ function renderGifs(){
         gif.setAttribute('src', response.data[0].images.fixed_height.url) 
         gifContainer.appendChild(gif) 
     })
-    }
+}
 
 //EVENT LISTENERS -------------------------------------------------------------------------------------------------------------------------------
 
@@ -120,6 +121,13 @@ drinkList.addEventListener("click", function (event) {
 
 //this listener is used to close the modal once its opened, the button is currently in the top right corner but that can be moved somewhere else
 modalClose.addEventListener("click", function (event) {
+    var element = event.target;
+    if (element.matches("button")) {
+        modalMain.classList.remove("is-active");
+    }
+} )
+
+modalDelete.addEventListener("click", function (event) {
     var element = event.target;
     if (element.matches("button")) {
         modalMain.classList.remove("is-active");
