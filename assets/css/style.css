@@ -1,3 +1,8 @@
+body {
+    background-image: url(https://i.postimg.cc/66nb2WZM/patrick-tomasso-GXXYk-Swnd-P4-unsplash.jpg);
+}
+
+
 .column {
     background-color: aquamarine;
     margin: 10px;
@@ -11,6 +16,50 @@
 }
 
 .navbar-item {
-    font-size: x-large;
+    font-size: large;
     font-weight: bolder;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.column {
+    background-color: white;
+}
+
+.rows{
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #f1f1f1; /* Grey background */
+    padding: 50px 10px; /* Some padding */
+    color: black;
+    object-position: 0em; /* Fixed position - sit on top of the page */
+    top: 0;
+    width: 100%; /* Full width */
+    transition: 2s; /* Add a transition effect (when scrolling - and font size is decreased) */
+  }
+
+.hide {
+    display: none;
+  }
+      
+.myDIV:hover + .hide {
+    display: block;
+    color: purple;
+  }
+
+.footer {
+    background-color: rgba(0, 0, 0, .5);
+    opacity: 0;
+  }
+
+.first {
+    background: rgba(0, 151, 19, 0.1); 
+
 }
