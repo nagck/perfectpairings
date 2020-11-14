@@ -63,3 +63,7 @@ body {
     background: rgba(0, 151, 19, 0.1); 
 
 }
+
+.button {
+    margin: auto;
+}
