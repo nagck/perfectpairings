@@ -78,11 +78,11 @@ function foodMatch (drink) {
 //FETCH CALLS--------------------------------------------------------------------------------------------------------------------------------------
 function renderGifs(){ 
 
-    var searchTerm = document.querySelector("#search").value
+    // var searchTerm = document.querySelector("#search").value;
     //var search = "";
     
     //--fetch API key
-    fetch('https://api.giphy.com/v1/gifs/search?q='+""+"&api_key=fhyjxSw2icjRND3sWkVDSIduWRwkEPsI&limit=1")
+    fetch("https://api.giphy.com/v1/gifs/search?q='+" + "CAT" + "&api_key=fhyjxSw2icjRND3sWkVDSIduWRwkEPsI&limit=1")
     .then(function(response){
     //--response and return  
         return response.json()
@@ -95,7 +95,7 @@ function renderGifs(){
         gif.setAttribute('src', response.data[0].images.fixed_height.url) 
         gifContainer.appendChild(gif) 
     })
-    }
+}
 
 //EVENT LISTENERS -------------------------------------------------------------------------------------------------------------------------------
 
