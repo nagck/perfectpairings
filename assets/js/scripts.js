@@ -3,15 +3,15 @@
 var mode = 0;
 //this does nothing at the moment
 
-var foodDropDown = document.querySelector(".foodDropDown");
-var drinkDropDown = document.querySelector(".drinkDropDown");
-//these variables target each dropdown menu for event listeners
+var foodList = document.querySelector(".foodList");
+var drinkList = document.querySelector(".drinkList");
+//these variables target each list for event listeners
 
 var dropDownItem = document.querySelector(".dropdown-item");
 //this does NOTHING at the moment
 
-var foodListTop = document.querySelector("#foodListTop");
-var drinkListTop = document.querySelector("#drinkListTop");
+// var foodListTop = document.querySelector("#foodListTop");
+// var drinkListTop = document.querySelector("#drinkListTop");
 //these variables are targets for the top of the menu, basically what is showing when the menu isn't clicked
 
 var modalMain = document.querySelector(".modal");
@@ -22,62 +22,77 @@ var listOfFood = ["Steak", "Wings", "Burrito", "Sushi", "Cheese"];
 var listOfDrinks = ["Canadian (Beer)", "Whisky", "Corona", "Sapporo", "Wine"];
 //these are the lists of food and drink so far, we will most likely just use these for testing until we can start pulling from multiple food/drink apis
 
+var foodMenu = {
+    "Burritos" : 6.90,
+    "Pizza" : 12.40,
+    "Wings" : 9.10
+}
+
+var drinkMenu = {
+    "Beer" : 2.70,
+    "Wine" : 12.00,
+    "Cider" : 3.10
+}
+
 //PRIMARY FUNCTIONS -------------------------------------------------------------------------------------------------------------------------------
 
 //this function is called when a user selects an item from the dropdown, the choice is passed in and then this function matches the perfect drink
 function drinkMatch(food) {
-    var foodChoice = food;
-    if (foodChoice === "Steak") {
-        modalMain.classList.add("is-active");
-        modalImage.src = "";
-        //update image for modal to be recommendation;
+    var foodPrice = foodMenu[food];
+    var matchingDrink;
+    var drinkPrice;
+    if (food === "Burritos") {
+        matchingDrink = "Beer";
+        drinkPrice = drinkMenu[matchingDrink];
     }
-    if (foodChoice === "Wings") {
-        modalMain.classList.add("is-active");
-        modalImage.src = "";
-        //update image for modal to be recommendation;
+    if (food === "Pizza") {
+        matchingDrink = "Wine";
+        drinkPrice = drinkMenu[matchingDrink];
     }
-    if (foodChoice === "Burrito") {
-        modalMain.classList.add("is-active");
-        modalImage.src = "";
-        //update image for modal to be recommendation;
+    if (food === "Wings") {
+        matchingDrink = "Cider";
+        drinkPrice = drinkMenu[matchingDrink];
     }
-    if (foodChoice === "Sushi") {
-        modalMain.classList.add("is-active");
-        modalImage.src = "";
-        //update image for modal to be recommendation;
-    }
-    if (foodChoice === "Cheese") {
-        modalMain.classList.add("is-active");
-        modalImage.src = "";
-        //update image for modal to be recommendation;
-    }
+    console.log("Your food choice is " + food + " which pairs perfectly with " + matchingDrink + " and will cost " + Math.round((foodPrice + drinkPrice) * 100) / 100  + "0");
 }
 
 //this is the same as drinkMatch, but does the opposite for when someone selects their drink of choice
 function foodMatch (drink) {
-
+    var drinkPrice = drinkMenu[drink];
+    var matchingFood;
+    var foodPrice;
+    if (drink === "Beer") {
+        matchingFood = "Burritos";
+        foodPrice = foodMenu[matchingFood];
+    }
+    if (drink === "Wine") {
+        matchingFood = "Pizza";
+        foodPrice = foodMenu[matchingFood];
+    }
+    if (drink === "Cider") {
+        matchingFood = "Wings";
+        foodPrice = foodMenu[matchingFood];
+    }
+    console.log("Your drink choice is " + drink + " which pairs perfectly with " + matchingFood + " and will cost " + Math.round((foodPrice + drinkPrice) * 100) / 100  + "0");
 }
 
 
 //EVENT LISTENERS -------------------------------------------------------------------------------------------------------------------------------
 
-foodDropDown.addEventListener("click", function (event) {
+foodList.addEventListener("click", function (event) {
     var element = event.target;
-    foodDropDown.classList.toggle("is-active");
-    if (element.matches("p")) {
-        foodListTop.textContent = element.textContent;
-        drinkMatch(element.textContent);
+    if (element.matches("img")) {
+        console.log(element.alt);
+        drinkMatch(element.alt);
     }
 })
 
-drinkDropDown.addEventListener("click", function (event) {
+drinkList.addEventListener("click", function (event) {
     var element = event.target;
-    drinkDropDown.classList.toggle("is-active");
-    if (element.matches("p")) {
-        console.log(element);
-        drinkListTop.textContent = element.textContent;
-        mode = 1;
+    if (element.matches("img")) {
+        console.log(element.alt);
+        foodMatch(element.alt);
+
     }
 })
 
