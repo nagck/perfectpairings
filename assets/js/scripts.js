@@ -16,7 +16,11 @@ var dropDownItem = document.querySelector(".dropdown-item");
 
 var modalMain = document.querySelector(".modal");
 var modalClose = document.querySelector(".modal-close");
+var modalDelete = document.querySelector(".delete");
 var modalImage = document.querySelector(".matchImage");
+
+var modalGif = document.querySelector(".modalGif")
+var gifModalButton = document.querySelector('.is-success');
 
 var listOfFood = ["Steak", "Wings", "Burrito", "Sushi", "Cheese"];
 var listOfDrinks = ["Canadian (Beer)", "Whisky", "Corona", "Sapporo", "Wine"];
@@ -76,26 +80,109 @@ function foodMatch (drink) {
     console.log("Your drink choice is " + drink + " which pairs perfectly with " + matchingFood + " and will cost " + Math.round((foodPrice + drinkPrice) * 100) / 100  + "0");
 }
 //FETCH CALLS--------------------------------------------------------------------------------------------------------------------------------------
-function renderGifs(){ 
+function renderGifs(item){ 
 
-    var searchTerm = document.querySelector("#search").value
+    // var searchTerm = document.querySelector("#search").value;
     //var search = "";
     
     //--fetch API key
-    fetch('https://api.giphy.com/v1/gifs/search?q='+""+"&api_key=fhyjxSw2icjRND3sWkVDSIduWRwkEPsI&limit=1")
+    fetch("https://api.giphy.com/v1/gifs/search?q='+" + item + "&api_key=fhyjxSw2icjRND3sWkVDSIduWRwkEPsI&limit=1")
     .then(function(response){
     //--response and return  
         return response.json()
     })
     //-- generate the image for the gif
     .then(function(response){
-        var gifContainer = document.querySelector("#gifContainer")
+        var gifContainer = document.querySelector(".matchImage")
         gifContainer.innerHTML=""
-        var gif = document.createElement('img')
-        gif.setAttribute('src', response.data[0].images.fixed_height.url) 
-        gifContainer.appendChild(gif) 
+        // var gif = document.createElement('img')
+        gifContainer.setAttribute('src', response.data[0].images.fixed_height.url) 
+        // gifContainer.appendChild(gif) 
     })
-    }
+}
+
+function winePair() {
+    console.log(wineUrl);
+    //Fetch for paired Wine
+    fetch (wineUrl, {
+        method: 'GET',  
+        })      
+        .then(function(response) {
+        return response.json();
+        })  
+        .then(function (data) {
+        console.log(data);
+            if (foodChoice === "Steak") {
+                $("#winepair").empty();
+                $("#winepair").append(
+                    "<div class='tbd'>"
+                    +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
+                    +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
+                    +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
+                    +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
+                    +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
+                    +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
+                    + "</div>"
+                ); // End of append
+            }
+            if (foodChoice === "Wings") {
+                $("#winepair").empty();
+                $("#winepair").append(
+                    "<div class='tbd'>"
+                        +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
+                        +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
+                        +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
+                        +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
+                        +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
+                        +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
+                        + "</div>"
+                ); // End of append
+                
+            }
+            if (foodChoice === "Burrito") {
+                $("#winepair").empty();
+                $("#winepair").append(
+                    "<div class='tbd'>"
+                        +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
+                        +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
+                        +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
+                        +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
+                        +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
+                        +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
+                        + "</div>"
+                ); // End of append
+                
+            }
+            if (foodChoice === "Sushi") {
+                $("#winepair").empty();
+                $("#winepair").append(
+                    "<div class='tbd'>"
+                    +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
+                    +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
+                    +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
+                    +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
+                    +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
+                    +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
+                    + "</div>"
+                ); // End of append
+                
+            }
+            if (foodChoice === "Cheese") {
+                $("#winepair").empty();
+                $("#winepair").append(
+                    "<div class='tbd'>"
+                    +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
+                    +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
+                    +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
+                    +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
+                    +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
+                    +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
+                    + "</div>"
+                ); // End of append
+                
+            }
+        });
+}
 
 //EVENT LISTENERS -------------------------------------------------------------------------------------------------------------------------------
 
@@ -104,8 +191,10 @@ foodList.addEventListener("click", function (event) {
     if (element.matches("img")) {
         console.log(element.alt);
         drinkMatch(element.alt);
-    }
-    modalMain.classList.add("is-active");
+        modalMain.classList.add("is-active");
+        renderGifs(element.alt);
+    }   
+    
 })
 
 drinkList.addEventListener("click", function (event) {
@@ -113,9 +202,10 @@ drinkList.addEventListener("click", function (event) {
     if (element.matches("img")) {
         console.log(element.alt);
         foodMatch(element.alt);
-
+        modalMain.classList.add("is-active");
+        renderGifs(element.alt);
     }
-    modalMain.classList.add("is-active");
+    
 })
 
 //this listener is used to close the modal once its opened, the button is currently in the top right corner but that can be moved somewhere else
@@ -126,7 +216,25 @@ modalClose.addEventListener("click", function (event) {
     }
 } )
 
+<<<<<<< HEAD
 //Spoonacular API
+=======
+modalDelete.addEventListener("click", function (event) {
+    var element = event.target;
+    if (element.matches("button")) {
+        modalMain.classList.remove("is-active");
+    }
+} )
+
+gifModalButton.addEventListener("click", function(event) {
+    var element = event.target;
+    if(element.matches("button")) {
+        modalGif.classList.add("is-active");
+    }
+})
+
+//Spoonacular API 
+>>>>>>> 1eecac72f9df4c3b440802c0ed9211a11b7dc52d
 var apiKey = "9106359dad954cc8820fb65a7927d657";
 var foodChoice = "Sushi";
 var wineUrl = "https://api.spoonacular.com/food/wine/pairing?food=" + foodChoice + "&apiKey=" + apiKey;
@@ -135,6 +243,7 @@ var wineUrl = "https://api.spoonacular.com/food/wine/pairing?food=" + foodChoice
 console.log("Food Choice is: ", foodChoice);  
   
     //this function is called when a user selects a food type, the function matches the perfect wine pair
+<<<<<<< HEAD
     function drinkMatch() {
         console.log(wineUrl);
         //Fetch for paired Wine
@@ -218,3 +327,7 @@ console.log("Food Choice is: ", foodChoice);
             });
     }
 
+=======
+
+    
+>>>>>>> 1eecac72f9df4c3b440802c0ed9211a11b7dc52d
