@@ -27,6 +27,7 @@ console.log("ready!");
                         +  "<ul>" + foodChoice + " pairs well with: " +  data.pairedWines[0] + " OR" + "</ul>"
                         +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
                         +  "<ul>" + data.pairedWines[2] + "</ul>"
+                        +  "<ul>" + data.pairingText + ":" + "</ul>"
                         + "</div>"
                     ); // End of append
                 }
