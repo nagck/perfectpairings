@@ -19,6 +19,9 @@ var modalClose = document.querySelector(".modal-close");
 var modalDelete = document.querySelector(".delete");
 var modalImage = document.querySelector(".matchImage");
 
+var modalGif = document.querySelector(".modalGif")
+var gifModalButton = document.querySelector('.is-success');
+
 var listOfFood = ["Steak", "Wings", "Burrito", "Sushi", "Cheese"];
 var listOfDrinks = ["Canadian (Beer)", "Whisky", "Corona", "Sapporo", "Wine"];
 //these are the lists of food and drink so far, we will most likely just use these for testing until we can start pulling from multiple food/drink apis
@@ -205,6 +208,13 @@ modalDelete.addEventListener("click", function (event) {
         modalMain.classList.remove("is-active");
     }
 } )
+
+gifModalButton.addEventListener("click", function(event) {
+    var element = event.target;
+    if(element.matches("button")) {
+        modalGif.classList.add("is-active");
+    }
+})
 
 //Spoonacular API 
 var apiKey = "9106359dad954cc8820fb65a7927d657";
