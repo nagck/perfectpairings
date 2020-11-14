@@ -21,7 +21,7 @@ var modalImage = document.querySelector(".matchImage");
 
 var modalGif = document.querySelector(".modalGif")
 var gifModalButton = document.querySelector(".is-success");
-var gifCloseButton = document.querySelector(".gifDelete");
+var gifCloseButton = modalGif.querySelector(".gifDelete");
 
 var listOfFood = ["Steak", "Wings", "Burrito", "Sushi", "Cheese"];
 var listOfDrinks = ["Canadian (Beer)", "Whisky", "Corona", "Sapporo", "Wine"];
@@ -229,7 +229,12 @@ gifModalButton.addEventListener("click", function(event) {
     var element = event.target;
     if(element.matches("button")) {
         modalGif.classList.add("is-active");
+        renderGifs("cat");
     }
+})
+
+gifCloseButton.addEventListener("click", function (event) {
+    modalGif.classList.remove("is-active");
 })
 
 //Spoonacular API 
