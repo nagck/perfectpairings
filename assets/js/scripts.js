@@ -174,9 +174,10 @@ foodList.addEventListener("click", function (event) {
     if (element.matches("img")) {
         console.log(element.alt);
         drinkMatch(element.alt);
-    }
-    modalMain.classList.add("is-active");
-    renderGifs(element.alt);
+        modalMain.classList.add("is-active");
+        renderGifs(element.alt);
+    }   
+    
 })
 
 drinkList.addEventListener("click", function (event) {
@@ -184,10 +185,10 @@ drinkList.addEventListener("click", function (event) {
     if (element.matches("img")) {
         console.log(element.alt);
         foodMatch(element.alt);
-
+        modalMain.classList.add("is-active");
+        renderGifs(element.alt);
     }
-    modalMain.classList.add("is-active");
-    renderGifs(element.alt);
+    
 })
 
 //this listener is used to close the modal once its opened, the button is currently in the top right corner but that can be moved somewhere else
