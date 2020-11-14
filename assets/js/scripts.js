@@ -90,11 +90,11 @@ function renderGifs(){
     })
     //-- generate the image for the gif
     .then(function(response){
-        var gifContainer = document.querySelector("#gifContainer")
+        var gifContainer = document.querySelector(".matchImage")
         gifContainer.innerHTML=""
-        var gif = document.createElement('img')
-        gif.setAttribute('src', response.data[0].images.fixed_height.url) 
-        gifContainer.appendChild(gif) 
+        // var gif = document.createElement('img')
+        gifContainer.setAttribute('src', response.data[0].images.fixed_height.url) 
+        // gifContainer.appendChild(gif) 
     })
 }
 
@@ -107,6 +107,7 @@ foodList.addEventListener("click", function (event) {
         drinkMatch(element.alt);
     }
     modalMain.classList.add("is-active");
+    renderGifs();
 })
 
 drinkList.addEventListener("click", function (event) {
@@ -117,6 +118,7 @@ drinkList.addEventListener("click", function (event) {
 
     }
     modalMain.classList.add("is-active");
+    renderGifs();
 })
 
 //this listener is used to close the modal once its opened, the button is currently in the top right corner but that can be moved somewhere else
