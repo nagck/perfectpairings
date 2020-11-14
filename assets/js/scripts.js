@@ -3,8 +3,8 @@
 var mode = 0;
 //this does nothing at the moment
 
-var foodList = document.querySelector(".foodList");
-var drinkList = document.querySelector(".drinkList");
+var foodList = document.querySelector(".foodSection");
+var drinkList = document.querySelector(".drinkSection");
 //these variables target each list for event listeners
 
 var dropDownItem = document.querySelector(".dropdown-item");
