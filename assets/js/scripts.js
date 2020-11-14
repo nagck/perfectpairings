@@ -216,9 +216,6 @@ modalClose.addEventListener("click", function (event) {
     }
 } )
 
-<<<<<<< HEAD
-//Spoonacular API
-=======
 modalDelete.addEventListener("click", function (event) {
     var element = event.target;
     if (element.matches("button")) {
@@ -234,7 +231,6 @@ gifModalButton.addEventListener("click", function(event) {
 })
 
 //Spoonacular API 
->>>>>>> 1eecac72f9df4c3b440802c0ed9211a11b7dc52d
 var apiKey = "9106359dad954cc8820fb65a7927d657";
 var foodChoice = "Sushi";
 var wineUrl = "https://api.spoonacular.com/food/wine/pairing?food=" + foodChoice + "&apiKey=" + apiKey;
@@ -243,91 +239,5 @@ var wineUrl = "https://api.spoonacular.com/food/wine/pairing?food=" + foodChoice
 console.log("Food Choice is: ", foodChoice);  
   
     //this function is called when a user selects a food type, the function matches the perfect wine pair
-<<<<<<< HEAD
-    function drinkMatch() {
-        console.log(wineUrl);
-        //Fetch for paired Wine
-        fetch (wineUrl, {
-            method: 'GET',  
-            })      
-            .then(function(response) {
-            return response.json();
-            })  
-            .then(function (data) {
-            console.log(data);
-                if (foodChoice === "Steak") {
-                    $("#winepair").empty();
-                    $("#winepair").append(
-                        "<div class='tbd'>"
-                        +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
-                        +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
-                        +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
-                        +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
-                        +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
-                        +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
-                        + "</div>"
-                    ); // End of append
-                }
-                if (foodChoice === "Wings") {
-                    $("#winepair").empty();
-                    $("#winepair").append(
-                        "<div class='tbd'>"
-                        +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
-                        +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
-                        +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
-                        +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
-                        +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
-                        +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
-                        + "</div>"
-                    ); // End of append
-                    
-                }
-                if (foodChoice === "Burrito") {
-                    $("#winepair").empty();
-                    $("#winepair").append(
-                        "<div class='tbd'>"
-                        +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
-                        +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
-                        +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
-                        +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
-                        +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
-                        +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
-                        + "</div>"
-                    ); // End of append
-                   
-                }
-                if (foodChoice === "Sushi") {
-                    $("#winepair").empty();
-                    $("#winepair").append(
-                        "<div class='tbd'>"
-                        +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
-                        +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
-                        +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
-                        +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
-                        +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
-                        +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
-                        + "</div>"
-                    ); // End of append
-                    
-                }
-                if (foodChoice === "Cheese") {
-                    $("#winepair").empty();
-                    $("#winepair").append(
-                        "<div class='tbd'>"
-                        +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
-                        +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
-                        +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
-                        +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
-                        +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
-                        +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
-                        + "</div>"
-                    ); // End of append
-                    
-                }
-            });
-    }
-
-=======
 
     
->>>>>>> 1eecac72f9df4c3b440802c0ed9211a11b7dc52d
