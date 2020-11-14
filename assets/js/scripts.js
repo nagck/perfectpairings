@@ -116,10 +116,12 @@ function winePair() {
                 $("#winepair").empty();
                 $("#winepair").append(
                     "<div class='tbd'>"
-                    +  "<ul>" + foodChoice + " pairs well with: " +  data.pairedWines[0] + " OR" + "</ul>"
+                    +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
+                    +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
                     +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
-                    +  "<ul>" + data.pairedWines[2] + "</ul>"
-                    +  "<ul>" + data.pairingText + ":" + "</ul>"
+                    +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
+                    +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
+                    +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
                     + "</div>"
                 ); // End of append
             }
@@ -127,10 +129,13 @@ function winePair() {
                 $("#winepair").empty();
                 $("#winepair").append(
                     "<div class='tbd'>"
-                    +  "<h1>" + foodChoice + " pairs well with: " +  data.pairedWines[0] + " OR" + "</h1>"
-                    +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
-                    +  "<ul>" + data.pairedWines[2] + "</ul>"
-                    + "</div>"
+                        +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
+                        +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
+                        +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
+                        +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
+                        +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
+                        +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
+                        + "</div>"
                 ); // End of append
                 
             }
@@ -138,10 +143,13 @@ function winePair() {
                 $("#winepair").empty();
                 $("#winepair").append(
                     "<div class='tbd'>"
-                    +  "<ul>" + foodChoice + " pairs well with: " +  data.pairedWines[0] + " OR" + "</ul>"
-                    +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
-                    +  "<ul>" + data.pairedWines[2] + "</ul>"
-                    + "</div>"
+                        +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
+                        +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
+                        +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
+                        +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
+                        +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
+                        +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
+                        + "</div>"
                 ); // End of append
                 
             }
@@ -149,9 +157,12 @@ function winePair() {
                 $("#winepair").empty();
                 $("#winepair").append(
                     "<div class='tbd'>"
-                    +  "<ul>" + foodChoice + " pairs well with: " +  data.pairedWines[0] + " OR" + "</ul>"
+                    +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
+                    +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
                     +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
-                    +  "<ul>" + data.pairedWines[2] + "</ul>"
+                    +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
+                    +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
+                    +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
                     + "</div>"
                 ); // End of append
                 
@@ -160,9 +171,12 @@ function winePair() {
                 $("#winepair").empty();
                 $("#winepair").append(
                     "<div class='tbd'>"
-                    +  "<ul>" + foodChoice + " pairs well with: " +  data.pairedWines[0] + " OR" + "</ul>"
+                    +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
+                    +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
                     +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
-                    +  "<ul>" + data.pairedWines[2] + "</ul>"
+                    +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
+                    +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
+                    +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
                     + "</div>"
                 ); // End of append
                 
@@ -218,12 +232,12 @@ gifModalButton.addEventListener("click", function(event) {
 
 //Spoonacular API 
 var apiKey = "9106359dad954cc8820fb65a7927d657";
-var foodChoice = "tbd";
+var foodChoice = "Sushi";
 var wineUrl = "https://api.spoonacular.com/food/wine/pairing?food=" + foodChoice + "&apiKey=" + apiKey;
 
 // QueryURL to get Wine Pairing 
 console.log("Food Choice is: ", foodChoice);  
-
+  
     //this function is called when a user selects a food type, the function matches the perfect wine pair
 
     
