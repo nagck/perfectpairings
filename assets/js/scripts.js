@@ -16,6 +16,7 @@ var dropDownItem = document.querySelector(".dropdown-item");
 
 var modalMain = document.querySelector(".modal");
 var modalClose = document.querySelector(".modal-close");
+var modalDelete = document.querySelector(".delete");
 var modalImage = document.querySelector(".matchImage");
 
 var listOfFood = ["Steak", "Wings", "Burrito", "Sushi", "Cheese"];
@@ -120,6 +121,13 @@ drinkList.addEventListener("click", function (event) {
 
 //this listener is used to close the modal once its opened, the button is currently in the top right corner but that can be moved somewhere else
 modalClose.addEventListener("click", function (event) {
+    var element = event.target;
+    if (element.matches("button")) {
+        modalMain.classList.remove("is-active");
+    }
+} )
+
+modalDelete.addEventListener("click", function (event) {
     var element = event.target;
     if (element.matches("button")) {
         modalMain.classList.remove("is-active");
