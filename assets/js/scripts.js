@@ -48,8 +48,10 @@ var drinkMenu = {
 //this function is called when a user selects an item from the dropdown, the choice is passed in and then this function matches the perfect drink
 function drinkMatch(food) {
     var foodPrice = foodMenu[food];
+    fetchFood(food);
     var matchingDrink;
     var drinkPrice;
+    
     if (food === "Pasta") {
         matchingDrinkCategory = "Wine";
         drinkPrice = drinkMenu[matchingDrink];
@@ -245,10 +247,13 @@ function winePair() {
 }
 
 //Spoonacular API for food menu item - this function is called when a user selects a food type, the function finds menu items from over 800 fast food and chain restaurants
-function foodMenu(food) {
-    var apiKey = "9106359dad954cc8820fb65a7927d657";
+var apiKey = "9106359dad954cc8820fb65a7927d657";
+
+
+function fetchFood(food) {
     var foodMenuChoice = food;
     var foodMenuUrl = "https://api.spoonacular.com/food/menuItems/search?query=" + foodMenuChoice + "&number=3" + "&apiKey=" + apiKey;
+    
     console.log(foodMenuUrl);
     //Fetch for Food Menu
     fetch (foodMenuUrl, {
@@ -260,125 +265,125 @@ function foodMenu(food) {
     .then(function (data) {
     console.log(data);
         
-        if (foodMenuChoice === "Pasta") {
-            $("#foodmenu").empty();
-            $("#foodmenu").append(
-                "<div class='tbd'>"
-                +  "<h2 style='color:Blue;'>" + "<b>" + " Suggested Food Menu Item 1: " + "</h2>" + "</b>" 
-                +  "<ul>" + data.menuItems[0].title + "</ul>" 
-                +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[0].restaurantChain + "</p>" 
-                +  "<div class='card-text'>" + "<img src='" + data.menuItems[0].image + "'>" + "<br>" + "<hr>" +"</div>"
-                + "</div>"
-                + "<div class='tbd'>"
-                +  "<h2 style='color:Green;'>" + "<b>" + " Suggested Food Menu Item 2: " + "</h2>" + "</b>"   
-                +  "<ul>" + data.menuItems[1].title + "</ul>"
-                +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[1].restaurantChain + "</p>" 
-                +  "<div class='card-text'>" + "<img src='" + data.menuItems[1].image + "'>" + "<br>" + "<hr>" +"</div>"
-                + "</div>"
-                + "<div class='tbd'>"
-                +  "<h2 style='color:purple;'>" + "<b>" + " Suggested Food Menu Item 3: " + "</h2>" + "</b>"   
-                +  "<ul>" + data.menuItems[2].title + "</ul>"
-                +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[2].restaurantChain + "</p>" 
-                +  "<div class='card-text'>" + "<img src='" + data.menuItems[2].image + "'>" + "<br>" + "<hr>" +"</div>"
-                + "</div>"
-            ); // End of append
-        }
+        // if (foodMenuChoice === "Pasta") {
+        //     $("#foodmenu").empty();
+        //     $("#foodmenu").append(
+        //         "<div class='tbd'>"
+        //         +  "<h2 style='color:Blue;'>" + "<b>" + " Suggested Food Menu Item 1: " + "</h2>" + "</b>" 
+        //         +  "<ul>" + data.menuItems[0].title + "</ul>" 
+        //         +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[0].restaurantChain + "</p>" 
+        //         +  "<div class='card-text'>" + "<img src='" + data.menuItems[0].image + "'>" + "<br>" + "<hr>" +"</div>"
+        //         + "</div>"
+        //         + "<div class='tbd'>"
+        //         +  "<h2 style='color:Green;'>" + "<b>" + " Suggested Food Menu Item 2: " + "</h2>" + "</b>"   
+        //         +  "<ul>" + data.menuItems[1].title + "</ul>"
+        //         +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[1].restaurantChain + "</p>" 
+        //         +  "<div class='card-text'>" + "<img src='" + data.menuItems[1].image + "'>" + "<br>" + "<hr>" +"</div>"
+        //         + "</div>"
+        //         + "<div class='tbd'>"
+        //         +  "<h2 style='color:purple;'>" + "<b>" + " Suggested Food Menu Item 3: " + "</h2>" + "</b>"   
+        //         +  "<ul>" + data.menuItems[2].title + "</ul>"
+        //         +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[2].restaurantChain + "</p>" 
+        //         +  "<div class='card-text'>" + "<img src='" + data.menuItems[2].image + "'>" + "<br>" + "<hr>" +"</div>"
+        //         + "</div>"
+        //     ); // End of append
+        // }
 
-        if (foodMenuChoice === "Rice Noodles") {
-            $("#foodmenu").empty();
-            $("#foodmenu").append(
-                "<div class='tbd'>"
-                +  "<h2 style='color:Blue;'>" + "<b>" + " Suggested Food Menu Item 1: " + "</h2>" + "</b>" 
-                +  "<ul>" + data.menuItems[0].title + "</ul>" 
-                +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[0].restaurantChain + "</p>" 
-                +  "<div class='card-text'>" + "<img src='" + data.menuItems[0].image + "'>" + "<br>" + "<hr>" +"</div>"
-                + "</div>"
-                + "<div class='tbd'>"
-                +  "<h2 style='color:Green;'>" + "<b>" + " Suggested Food Menu Item 2: " + "</h2>" + "</b>"   
-                +  "<ul>" + data.menuItems[1].title + "</ul>"
-                +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[1].restaurantChain + "</p>" 
-                +  "<div class='card-text'>" + "<img src='" + data.menuItems[1].image + "'>" + "<br>" + "<hr>" +"</div>"
-                + "</div>"
-                + "<div class='tbd'>"
-                +  "<h2 style='color:purple;'>" + "<b>" + " Suggested Food Menu Item 3: " + "</h2>" + "</b>"   
-                +  "<ul>" + data.menuItems[2].title + "</ul>"
-                +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[2].restaurantChain + "</p>" 
-                +  "<div class='card-text'>" + "<img src='" + data.menuItems[2].image + "'>" + "<br>" + "<hr>" +"</div>"
-                + "</div>"
-            ); // End of append
-        }
+        // if (foodMenuChoice === "Rice Noodles") {
+        //     $("#foodmenu").empty();
+        //     $("#foodmenu").append(
+        //         "<div class='tbd'>"
+        //         +  "<h2 style='color:Blue;'>" + "<b>" + " Suggested Food Menu Item 1: " + "</h2>" + "</b>" 
+        //         +  "<ul>" + data.menuItems[0].title + "</ul>" 
+        //         +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[0].restaurantChain + "</p>" 
+        //         +  "<div class='card-text'>" + "<img src='" + data.menuItems[0].image + "'>" + "<br>" + "<hr>" +"</div>"
+        //         + "</div>"
+        //         + "<div class='tbd'>"
+        //         +  "<h2 style='color:Green;'>" + "<b>" + " Suggested Food Menu Item 2: " + "</h2>" + "</b>"   
+        //         +  "<ul>" + data.menuItems[1].title + "</ul>"
+        //         +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[1].restaurantChain + "</p>" 
+        //         +  "<div class='card-text'>" + "<img src='" + data.menuItems[1].image + "'>" + "<br>" + "<hr>" +"</div>"
+        //         + "</div>"
+        //         + "<div class='tbd'>"
+        //         +  "<h2 style='color:purple;'>" + "<b>" + " Suggested Food Menu Item 3: " + "</h2>" + "</b>"   
+        //         +  "<ul>" + data.menuItems[2].title + "</ul>"
+        //         +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[2].restaurantChain + "</p>" 
+        //         +  "<div class='card-text'>" + "<img src='" + data.menuItems[2].image + "'>" + "<br>" + "<hr>" +"</div>"
+        //         + "</div>"
+        //     ); // End of append
+        // }
 
-        if (foodMenuChoice === "Pizza") {
-            $("#foodmenu").empty();
-            $("#foodmenu").append(
-                "<div class='tbd'>"
-                +  "<h2 style='color:Blue;'>" + "<b>" + " Suggested Food Menu Item 1: " + "</h2>" + "</b>" 
-                +  "<ul>" + data.menuItems[0].title + "</ul>" 
-                +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[0].restaurantChain + "</p>" 
-                +  "<div class='card-text'>" + "<img src='" + data.menuItems[0].image + "'>" + "<br>" + "<hr>" +"</div>"
-                + "</div>"
-                + "<div class='tbd'>"
-                +  "<h2 style='color:Green;'>" + "<b>" + " Suggested Food Menu Item 2: " + "</h2>" + "</b>"   
-                +  "<ul>" + data.menuItems[1].title + "</ul>"
-                +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[1].restaurantChain + "</p>" 
-                +  "<div class='card-text'>" + "<img src='" + data.menuItems[1].image + "'>" + "<br>" + "<hr>" +"</div>"
-                + "</div>"
-                + "<div class='tbd'>"
-                +  "<h2 style='color:purple;'>" + "<b>" + " Suggested Food Menu Item 3: " + "</h2>" + "</b>"   
-                +  "<ul>" + data.menuItems[2].title + "</ul>"
-                +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[2].restaurantChain + "</p>" 
-                +  "<div class='card-text'>" + "<img src='" + data.menuItems[2].image + "'>" + "<br>" + "<hr>" +"</div>"
-                + "</div>"
-            ); // End of append
-        }
+        // if (foodMenuChoice === "Pizza") {
+        //     $("#foodmenu").empty();
+        //     $("#foodmenu").append(
+        //         "<div class='tbd'>"
+        //         +  "<h2 style='color:Blue;'>" + "<b>" + " Suggested Food Menu Item 1: " + "</h2>" + "</b>" 
+        //         +  "<ul>" + data.menuItems[0].title + "</ul>" 
+        //         +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[0].restaurantChain + "</p>" 
+        //         +  "<div class='card-text'>" + "<img src='" + data.menuItems[0].image + "'>" + "<br>" + "<hr>" +"</div>"
+        //         + "</div>"
+        //         + "<div class='tbd'>"
+        //         +  "<h2 style='color:Green;'>" + "<b>" + " Suggested Food Menu Item 2: " + "</h2>" + "</b>"   
+        //         +  "<ul>" + data.menuItems[1].title + "</ul>"
+        //         +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[1].restaurantChain + "</p>" 
+        //         +  "<div class='card-text'>" + "<img src='" + data.menuItems[1].image + "'>" + "<br>" + "<hr>" +"</div>"
+        //         + "</div>"
+        //         + "<div class='tbd'>"
+        //         +  "<h2 style='color:purple;'>" + "<b>" + " Suggested Food Menu Item 3: " + "</h2>" + "</b>"   
+        //         +  "<ul>" + data.menuItems[2].title + "</ul>"
+        //         +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[2].restaurantChain + "</p>" 
+        //         +  "<div class='card-text'>" + "<img src='" + data.menuItems[2].image + "'>" + "<br>" + "<hr>" +"</div>"
+        //         + "</div>"
+        //     ); // End of append
+        // }
 
-        if (foodMenuChoice === "Breakfast") {
-            $("#foodmenu").empty();
-            $("#foodmenu").append(
-                "<div class='tbd'>"
-                +  "<h2 style='color:Blue;'>" + "<b>" + " Suggested Food Menu Item 1: " + "</h2>" + "</b>" 
-                +  "<ul>" + data.menuItems[0].title + "</ul>" 
-                +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[0].restaurantChain + "</p>" 
-                +  "<div class='card-text'>" + "<img src='" + data.menuItems[0].image + "'>" + "<br>" + "<hr>" +"</div>"
-                + "</div>"
-                + "<div class='tbd'>"
-                +  "<h2 style='color:Green;'>" + "<b>" + " Suggested Food Menu Item 2: " + "</h2>" + "</b>"   
-                +  "<ul>" + data.menuItems[1].title + "</ul>"
-                +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[1].restaurantChain + "</p>" 
-                +  "<div class='card-text'>" + "<img src='" + data.menuItems[1].image + "'>" + "<br>" + "<hr>" +"</div>"
-                + "</div>"
-                + "<div class='tbd'>"
-                +  "<h2 style='color:purple;'>" + "<b>" + " Suggested Food Menu Item 3: " + "</h2>" + "</b>"   
-                +  "<ul>" + data.menuItems[2].title + "</ul>"
-                +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[2].restaurantChain + "</p>" 
-                +  "<div class='card-text'>" + "<img src='" + data.menuItems[2].image + "'>" + "<br>" + "<hr>" +"</div>"
-                + "</div>"
-            ); // End of append
-        }
+        // if (foodMenuChoice === "Breakfast") {
+        //     $("#foodmenu").empty();
+        //     $("#foodmenu").append(
+        //         "<div class='tbd'>"
+        //         +  "<h2 style='color:Blue;'>" + "<b>" + " Suggested Food Menu Item 1: " + "</h2>" + "</b>" 
+        //         +  "<ul>" + data.menuItems[0].title + "</ul>" 
+        //         +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[0].restaurantChain + "</p>" 
+        //         +  "<div class='card-text'>" + "<img src='" + data.menuItems[0].image + "'>" + "<br>" + "<hr>" +"</div>"
+        //         + "</div>"
+        //         + "<div class='tbd'>"
+        //         +  "<h2 style='color:Green;'>" + "<b>" + " Suggested Food Menu Item 2: " + "</h2>" + "</b>"   
+        //         +  "<ul>" + data.menuItems[1].title + "</ul>"
+        //         +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[1].restaurantChain + "</p>" 
+        //         +  "<div class='card-text'>" + "<img src='" + data.menuItems[1].image + "'>" + "<br>" + "<hr>" +"</div>"
+        //         + "</div>"
+        //         + "<div class='tbd'>"
+        //         +  "<h2 style='color:purple;'>" + "<b>" + " Suggested Food Menu Item 3: " + "</h2>" + "</b>"   
+        //         +  "<ul>" + data.menuItems[2].title + "</ul>"
+        //         +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[2].restaurantChain + "</p>" 
+        //         +  "<div class='card-text'>" + "<img src='" + data.menuItems[2].image + "'>" + "<br>" + "<hr>" +"</div>"
+        //         + "</div>"
+        //     ); // End of append
+        // }
             
-        if (foodMenuChoice === "Spicy Curry") {
-            $("#foodmenu").empty();
-            $("#foodmenu").append(
-                "<div class='tbd'>"
-                +  "<h2 style='color:Blue;'>" + "<b>" + " Suggested Food Menu Item 1: " + "</h2>" + "</b>" 
-                +  "<ul>" + data.menuItems[0].title + "</ul>" 
-                +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[0].restaurantChain + "</p>" 
-                +  "<div class='card-text'>" + "<img src='" + data.menuItems[0].image + "'>" + "<br>" + "<hr>" +"</div>"
-                + "</div>"
-                + "<div class='tbd'>"
-                +  "<h2 style='color:Green;'>" + "<b>" + " Suggested Food Menu Item 2: " + "</h2>" + "</b>"   
-                +  "<ul>" + data.menuItems[1].title + "</ul>"
-                +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[1].restaurantChain + "</p>" 
-                +  "<div class='card-text'>" + "<img src='" + data.menuItems[1].image + "'>" + "<br>" + "<hr>" +"</div>"
-                + "</div>"
-                + "<div class='tbd'>"
-                +  "<h2 style='color:purple;'>" + "<b>" + " Suggested Food Menu Item 3: " + "</h2>" + "</b>"   
-                +  "<ul>" + data.menuItems[2].title + "</ul>"
-                +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[2].restaurantChain + "</p>" 
-                +  "<div class='card-text'>" + "<img src='" + data.menuItems[2].image + "'>" + "<br>" + "<hr>" +"</div>"
-                + "</div>"
-            ); // End of append
-        }
+        // if (foodMenuChoice === "Spicy Curry") {
+        //     $("#foodmenu").empty();
+        //     $("#foodmenu").append(
+        //         "<div class='tbd'>"
+        //         +  "<h2 style='color:Blue;'>" + "<b>" + " Suggested Food Menu Item 1: " + "</h2>" + "</b>" 
+        //         +  "<ul>" + data.menuItems[0].title + "</ul>" 
+        //         +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[0].restaurantChain + "</p>" 
+        //         +  "<div class='card-text'>" + "<img src='" + data.menuItems[0].image + "'>" + "<br>" + "<hr>" +"</div>"
+        //         + "</div>"
+        //         + "<div class='tbd'>"
+        //         +  "<h2 style='color:Green;'>" + "<b>" + " Suggested Food Menu Item 2: " + "</h2>" + "</b>"   
+        //         +  "<ul>" + data.menuItems[1].title + "</ul>"
+        //         +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[1].restaurantChain + "</p>" 
+        //         +  "<div class='card-text'>" + "<img src='" + data.menuItems[1].image + "'>" + "<br>" + "<hr>" +"</div>"
+        //         + "</div>"
+        //         + "<div class='tbd'>"
+        //         +  "<h2 style='color:purple;'>" + "<b>" + " Suggested Food Menu Item 3: " + "</h2>" + "</b>"   
+        //         +  "<ul>" + data.menuItems[2].title + "</ul>"
+        //         +  "<p>" + "<b>" + "Restaurant Chain: " + "</b>" + data.menuItems[2].restaurantChain + "</p>" 
+        //         +  "<div class='card-text'>" + "<img src='" + data.menuItems[2].image + "'>" + "<br>" + "<hr>" +"</div>"
+        //         + "</div>"
+        //     ); // End of append
+        // }
     });
 }
 
