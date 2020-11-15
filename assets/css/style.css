@@ -96,3 +96,6 @@ header {
     animation: mymove 5s infinite; 
 }
 
+.modalList, li {
+    font-size: x-large;
+}
