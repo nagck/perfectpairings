@@ -384,14 +384,5 @@ gifCloseButton.addEventListener("click", function (event) {
     modalGif.classList.remove("is-active");
 })
 
-//Spoonacular API 
-var apiKey = "9106359dad954cc8820fb65a7927d657";
-var foodChoice = "Sushi";
-var wineUrl = "https://api.spoonacular.com/food/wine/pairing?food=" + foodChoice + "&apiKey=" + apiKey;
-
-// QueryURL to get Wine Pairing 
-console.log("Food Choice is: ", foodChoice);  
-  
-//this function is called when a user selects a food type, the function matches the perfect wine pair
 
     
