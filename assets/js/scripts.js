@@ -24,7 +24,7 @@ var modalDelete = document.querySelector(".delete");
 var modalImage = document.querySelector(".matchImage");
 
 var modalGif = document.querySelector(".modalGif")
-var gifModalButton = document.querySelector(".is-success");
+var gifModalButton = document.querySelector(".gifButton");
 var gifCloseButton = modalGif.querySelector(".gifDelete");
 
 var listOfFood = ["Pasta", "Rice Noodles", "Pizza", "Breakfast", "Spicy Curry", "Bread", "Salads", "Desserts"];
@@ -142,10 +142,12 @@ function renderGifs(item){
     })
     //-- generate the image for the gif
     .then(function(response){
-        var gifContainer = document.querySelector(".matchImage")
+        var gifContainer = document.querySelector(".matchImage");
+        var gifButtonContainer = document.querySelector(".gifImage");
         gifContainer.innerHTML=""
         // var gif = document.createElement('img')
-        gifContainer.setAttribute('src', response.data[0].images.fixed_height.url) 
+        gifContainer.setAttribute('src', response.data[0].images.fixed_height.url)
+        gifButtonContainer.setAttribute('src', response.data[0].images.fixed_height.url) 
         // gifContainer.appendChild(gif) 
     })
 }
@@ -422,7 +424,7 @@ modalDelete.addEventListener("click", function (event) {
 
 gifModalButton.addEventListener("click", function(event) {
     var element = event.target;
-    if(element.matches("button")) {
+    if(element.matches("button") || element.matches("span")) {
         modalGif.classList.add("is-active");
         renderGifs("cat");
     }
