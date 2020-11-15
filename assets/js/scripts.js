@@ -70,8 +70,21 @@ function drinkMatch(food) {
         matchingDrinkCategory = "Wine";
         drinkPrice = drinkMenu[matchingDrink];
     }
+    if (food === "Bread") {
+        matchingDrinkCategory = "Wine";
+        drinkPrice = drinkMenu[matchingDrink];
+    }
+    if (food === "Salads") {
+        matchingDrinkCategory = "Wine";
+        drinkPrice = drinkMenu[matchingDrink];
+    }
+    if (food === "Desserts") {
+        matchingDrinkCategory = "Wine";
+        drinkPrice = drinkMenu[matchingDrink];
+    }
     modalThirsty.setAttribute("style", "display: ");
     modalHungry.setAttribute("style", "display: none");
+
     modalItem.textContent = food + " recommendation: " + "[related item from api]";
     modalPrice.textContent = food + " Price: " + "[related item PRICE from api]";
     modalCalories.textContent = food + " Calories: " + "[related item calories from api]";
@@ -83,21 +96,37 @@ function foodMatch (drink) {
     var drinkPrice = drinkMenu[drink];
     var matchingFood;
     var foodPrice;
-    if (drink === "Beer") {
-        matchingFood = "Burritos";
+    if (drink === "Wine") {
+        matchingFood = "Pasta";
         foodPrice = foodMenu[matchingFood];
     }
-    if (drink === "Wine") {
+    if (drink === "Pop") {
         matchingFood = "Pizza";
         foodPrice = foodMenu[matchingFood];
     }
-    if (drink === "Cider") {
-        matchingFood = "Wings";
+    if (drink === "Cocktails") {
+        matchingFood = "Rice Noodles";
+        foodPrice = foodMenu[matchingFood];
+    }
+    if (drink === "Liquor") {
+        matchingFood = "Salads";
+        foodPrice = foodMenu[matchingFood];
+    }
+    if (drink === "Beer") {
+        matchingFood = "Spicy Curry";
+        foodPrice = foodMenu[matchingFood];
+    }
+    if (drink === "Smoothies") {
+        matchingFood = "Salads";
         foodPrice = foodMenu[matchingFood];
     }
     modalThirsty.setAttribute("style", "display: none ");
     modalHungry.setAttribute("style", "display: ");
-    console.log("Your drink choice is " + drink + " which pairs perfectly with " + matchingFood + " and will cost " + Math.round((foodPrice + drinkPrice) * 100) / 100  + "0");
+
+    modalItem.textContent = drink + " recommendation: " + "[related item from api]";
+    modalPrice.textContent = drink + " Price: " + "[related item PRICE from api]";
+    modalCalories.textContent = drink + " Calories: " + "[related item calories from api]";
+    
 }
 //FETCH CALLS--------------------------------------------------------------------------------------------------------------------------------------
 function renderGifs(item){ 
