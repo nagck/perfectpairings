@@ -10,9 +10,13 @@ var drinkList = document.querySelector(".drinkSection");
 var dropDownItem = document.querySelector(".dropdown-item");
 //this does NOTHING at the moment
 
-// var foodListTop = document.querySelector("#foodListTop");
-// var drinkListTop = document.querySelector("#drinkListTop");
+var modalItem = document.querySelector("#item");
+var modalPrice = document.querySelector("#price");
+var modalCalories = document.querySelector("#calories")
 //these variables are targets for the top of the menu, basically what is showing when the menu isn't clicked
+
+var modalThirsty = document.querySelector(".thirstyButton");
+var modalHungry = document.querySelector(".hungryButton");
 
 var modalMain = document.querySelector(".modal");
 var modalClose = document.querySelector(".modal-close");
@@ -23,20 +27,20 @@ var modalGif = document.querySelector(".modalGif")
 var gifModalButton = document.querySelector(".is-success");
 var gifCloseButton = modalGif.querySelector(".gifDelete");
 
-var listOfFood = ["Steak", "Wings", "Burrito", "Sushi", "Cheese"];
-var listOfDrinks = ["Canadian (Beer)", "Whisky", "Corona", "Sapporo", "Wine"];
+var listOfFood = ["Pasta", "Rice Noodles", "Pizza", "Breakfast", "Spicy Curry", "Bread", "Salads", "Desserts"];
+var listOfDrinks = ["Wine", "Pop", "Cocktails", "Liquor", "Beer", "Smoothies"];
 //these are the lists of food and drink so far, we will most likely just use these for testing until we can start pulling from multiple food/drink apis
 
 var foodMenu = {
-    "Burritos" : 6.90,
+    "Pasta" : 6.90,
     "Pizza" : 12.40,
-    "Wings" : 9.10
+    "Rice Noodles" : 9.10
 }
 
 var drinkMenu = {
     "Beer" : 2.70,
     "Wine" : 12.00,
-    "Cider" : 3.10
+    "Cocktails" : 8.10
 }
 
 //PRIMARY FUNCTIONS -------------------------------------------------------------------------------------------------------------------------------
@@ -46,19 +50,32 @@ function drinkMatch(food) {
     var foodPrice = foodMenu[food];
     var matchingDrink;
     var drinkPrice;
-    if (food === "Burritos") {
-        matchingDrink = "Beer";
+    if (food === "Pasta") {
+        matchingDrinkCategory = "Wine";
         drinkPrice = drinkMenu[matchingDrink];
     }
     if (food === "Pizza") {
         matchingDrink = "Wine";
         drinkPrice = drinkMenu[matchingDrink];
     }
-    if (food === "Wings") {
-        matchingDrink = "Cider";
+    if (food === "Rice Noodles") {
+        matchingDrink = "Cocktails";
         drinkPrice = drinkMenu[matchingDrink];
     }
-    console.log("Your food choice is " + food + " which pairs perfectly with " + matchingDrink + " and will cost " + Math.round((foodPrice + drinkPrice) * 100) / 100  + "0");
+    if (food === "Breakfast") {
+        matchingDrinkCategory = "Wine";
+        drinkPrice = drinkMenu[matchingDrink];
+    }
+    if (food === "Spicy Curry") {
+        matchingDrinkCategory = "Wine";
+        drinkPrice = drinkMenu[matchingDrink];
+    }
+    modalThirsty.setAttribute("style", "display: ");
+    modalHungry.setAttribute("style", "display: none");
+    modalItem.textContent = food + " recommendation: " + "[related item from api]";
+    modalPrice.textContent = food + " Price: " + "[related item PRICE from api]";
+    modalCalories.textContent = food + " Calories: " + "[related item calories from api]";
+   
 }
 
 //this is the same as drinkMatch, but does the opposite for when someone selects their drink of choice
@@ -78,6 +95,8 @@ function foodMatch (drink) {
         matchingFood = "Wings";
         foodPrice = foodMenu[matchingFood];
     }
+    modalThirsty.setAttribute("style", "display: none ");
+    modalHungry.setAttribute("style", "display: ");
     console.log("Your drink choice is " + drink + " which pairs perfectly with " + matchingFood + " and will cost " + Math.round((foodPrice + drinkPrice) * 100) / 100  + "0");
 }
 //FETCH CALLS--------------------------------------------------------------------------------------------------------------------------------------
@@ -195,9 +214,9 @@ function winePair() {
 }
 
 //Spoonacular API for food menu item - this function is called when a user selects a food type, the function finds menu items from over 800 fast food and chain restaurants
-function foodMenu() {
+function foodMenu(food) {
     var apiKey = "9106359dad954cc8820fb65a7927d657";
-    var foodMenuChoice = "Steak";
+    var foodMenuChoice = food;
     var foodMenuUrl = "https://api.spoonacular.com/food/menuItems/search?query=" + foodMenuChoice + "&number=3" + "&apiKey=" + apiKey;
     console.log(foodMenuUrl);
     //Fetch for Food Menu
@@ -210,7 +229,7 @@ function foodMenu() {
     .then(function (data) {
     console.log(data);
         
-        if (foodMenuChoice === "Steak") {
+        if (foodMenuChoice === "Pasta") {
             $("#foodmenu").empty();
             $("#foodmenu").append(
                 "<div class='tbd'>"
@@ -234,7 +253,7 @@ function foodMenu() {
             ); // End of append
         }
 
-        if (foodMenuChoice === "Wings") {
+        if (foodMenuChoice === "Rice Noodles") {
             $("#foodmenu").empty();
             $("#foodmenu").append(
                 "<div class='tbd'>"
@@ -258,7 +277,7 @@ function foodMenu() {
             ); // End of append
         }
 
-        if (foodMenuChoice === "Burrito") {
+        if (foodMenuChoice === "Pizza") {
             $("#foodmenu").empty();
             $("#foodmenu").append(
                 "<div class='tbd'>"
@@ -282,7 +301,7 @@ function foodMenu() {
             ); // End of append
         }
 
-        if (foodMenuChoice === "Sushi") {
+        if (foodMenuChoice === "Breakfast") {
             $("#foodmenu").empty();
             $("#foodmenu").append(
                 "<div class='tbd'>"
@@ -306,7 +325,7 @@ function foodMenu() {
             ); // End of append
         }
             
-        if (foodMenuChoice === "Cheese") {
+        if (foodMenuChoice === "Spicy Curry") {
             $("#foodmenu").empty();
             $("#foodmenu").append(
                 "<div class='tbd'>"
@@ -383,6 +402,5 @@ gifModalButton.addEventListener("click", function(event) {
 gifCloseButton.addEventListener("click", function (event) {
     modalGif.classList.remove("is-active");
 })
-
 
     

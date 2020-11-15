@@ -96,27 +96,3 @@ header {
     animation: mymove 5s infinite; 
 }
 
-@keyframes mymove {
-    from {background-color: hsl(141, 71%, 48%);}
-    to {background-color: blue;}
-}
-
-a {
-    animation: yemove 5s infinite; 
-}
-
-@keyframes yemove {
-    from {color: orange;}
-    to {color: blue;}
-}
-
-.button:hover {
-    transition-property: background-color;
-    background-color: orange;
-    transition: 0.1s;
-    background-color: has-background-warning;
-}
-
-.h2 {
-    font-size: large;
-}
