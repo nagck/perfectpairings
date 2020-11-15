@@ -1,7 +1,7 @@
+
 body {
     background-image: url(https://i.postimg.cc/66nb2WZM/patrick-tomasso-GXXYk-Swnd-P4-unsplash.jpg);
 }
-
 
 .column {
     background-color: aquamarine;
@@ -44,15 +44,6 @@ header {
     transition: 0.2s;
 }
 
-header.sticky {
-    font-size: 24px;
-    line-height: 48px;
-    height: 48px;
-    background: #efc47D;
-    text-align: left;
-    padding-left: 20px;
-}
-
       
 .myDIV:hover + .overlay {
     opacity: 2.0;
@@ -62,7 +53,7 @@ header.sticky {
 .overlay {
     position: absolute;
     text-align: center;
-    left: 15%;
+    left: 12%;
     top: 25%;
     opacity: 0;
     transition: 0.1s;
@@ -70,25 +61,38 @@ header.sticky {
     text-decoration: underline;
     font-size: 25px;
     text-shadow: 4px 4px 7px white;
+    animation: yeezymove 5s infinite; 
   }
+
+  @keyframes yeezymove {
+    from {color: rgb(142, 231, 219);}
+    to {color: white;}
+}
 
 
 .footer {
-    background-color: transparent;
-    opacity: 0;
+    opacity: 0.8;
+    text-decoration-style: wavy;
   }
 
 .first {
-    background: rgba(0, 151, 19, 0.1); 
+    background: rgba(0, 151, 19, 0.1);
 
 }
 
 .button {
+    display: block;
     margin: auto;
-
+    width: 300px;
+    padding: 31px 5px;
+    border-radius: 5px;
+    background-color: orange;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 32px;
+    color: MintCream;
+    transition: 0.1s;
+    transition-property: background-color;
+    animation: mymove 5s infinite; 
 }
 
-.modalist, li {
-    font-size: x-large;
-    font-weight: bold;
-}
