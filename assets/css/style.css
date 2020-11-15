@@ -87,3 +87,8 @@ header.sticky {
     margin: auto;
 
 }
+
+.modalist, li {
+    font-size: x-large;
+    font-weight: bold;
+}
