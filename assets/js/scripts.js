@@ -135,9 +135,9 @@ function foodMatch (drink) {
     modalThirsty.setAttribute("style", "display: none ");
     modalHungry.setAttribute("style", "display: ");
 
-    modalItem.textContent = drink + " recommendation: " + data.results[num].title;
-    modalPrice.textContent = drink + " Price: " + "-------------";
-    modalCalories.textContent = drink + " Calories: " + data.results[num].nutrition.nutrients[0].amount;
+    // modalItem.textContent = drink + " recommendation: " + data.results[num].title;
+    // modalPrice.textContent = drink + " Price: " + "-------------";
+    // modalCalories.textContent = drink + " Calories: " + data.results[num].nutrition.nutrients[0].amount;
 }
 //FETCH CALLS--------------------------------------------------------------------------------------------------------------------------------------
 function renderGifs(item){ 
@@ -374,8 +374,12 @@ gifCloseButton.addEventListener("click", function (event) {
 
 loginButton.addEventListener("click", function (event) {
     event.preventDefault();
+    
     console.log(loginUser.value.trim());
     console.log(loginPassword.value.trim());
+    if (loginUser.value.trim() === "Admin" && loginPassword.value.trim() === "Admin") {
+        document.getElementById('id01').style.display='none';
+    }
 })
 
     
