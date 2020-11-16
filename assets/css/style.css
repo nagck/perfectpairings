@@ -121,6 +121,31 @@ span.psw {
     }
 }
 
+p1 {
+    font-family: "Amatic SC", sans-serif
+}
+
+.w3-center {
+    font-family: "Amatic SC", sans-serif
+}
+
+/* Container holding the image and the text */
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Amatic SC", sans-serif;
+    color: black;
+}
+
 .column {
     background-color: aquamarine;
     margin: 10px;
