@@ -49,6 +49,9 @@ var foodCalories;
 //PRIMARY FUNCTIONS -------------------------------------------------------------------------------------------------------------------------------
 function init () {
     document.getElementById('id01').style.display='block'; style="width:auto;"
+    var num = Math.floor((Math.random() * 3));
+    
+    
 }
 
 //this function is called when a user selects an item from the dropdown, the choice is passed in and then this function matches the perfect drink
@@ -156,9 +159,9 @@ function renderGifs(item){
     })
 }
 //Spoonacular API 
-var apiKey = "9106359dad954cc8820fb65a7927d657";
+var apiKeyNagesh = "9106359dad954cc8820fb65a7927d657";
 var foodChoice = "Sushi";
-var wineUrl = "https://api.spoonacular.com/food/wine/pairing?food=" + foodChoice + "&apiKey=" + apiKey;
+var wineUrl = "https://api.spoonacular.com/food/wine/pairing?food=" + foodChoice + "&apiKey=" + apiKeyNagesh;
 
 // QueryURL to get Wine Pairing 
 console.log("Food Choice is: ", foodChoice);  
@@ -250,13 +253,19 @@ function winePair() {
 
 //Spoonacular API for food menu item - this function is called when a user selects a food type, the function finds menu items from over 800 fast food and chain restaurants
 var apiKey = "9106359dad954cc8820fb65a7927d657";
-var apiKeyChris = "932b49d3d5254977b66c4adec1d6f94c";
+var apiKeyChris = "2fe6c814325d4bf690bbef8390f08a9c";
+var apiKeyKevin = "053c20d29c3d4bcba7deb8dbf8b40b1d";
+
+var apiList = ["2fe6c814325d4bf690bbef8390f08a9c", "053c20d29c3d4bcba7deb8dbf8b40b1d"];
 
 
 function fetchFood(food) {
+    var randNum = Math.floor((Math.random() * 2));
+    var randomApi = apiList[randNum]
+    console.log(randomApi);
     var foodMenuChoice = food;
     // var foodMenuUrl = "https://api.spoonacular.com/food/menuItems/search?query=" + foodMenuChoice + "&number=3" + "&apiKey=" + apiKeyChris;
-    var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + foodMenuChoice + "&maxCalories=1000" + "&number=3" + "&apiKey=" + apiKeyChris;
+    var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + foodMenuChoice + "&maxCalories=1000" + "&number=3" + "&apiKey=" + randomApi;
     // var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2" + "&apiKey=" + apiKeyChris;
     
     console.log(foodItemUrl);
@@ -269,10 +278,11 @@ function fetchFood(food) {
     })  
     .then(function (data) {
         // console.log(foodCalories = data.results[0].nutrition.nutrients[0].amount)
+        var num = Math.floor((Math.random() * 3));
         
-        modalItem.textContent = food + " recommendation: " + data.results[0].title;
+        modalItem.textContent = food + " recommendation: " + data.results[num].title;
         modalPrice.textContent = food + " Price: " + "[related item PRICE from api]";
-        modalCalories.textContent = food + " Calories: " + data.results[0].nutrition.nutrients[0].amount;
+        modalCalories.textContent = food + " Calories: " + data.results[num].nutrition.nutrients[0].amount;
 
         
     
