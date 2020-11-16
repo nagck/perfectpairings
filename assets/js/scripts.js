@@ -284,9 +284,9 @@ function fetchFood(food) {
         console.log(data);
         console.log(num)
         
-        modalItem.textContent = food + " recommendation: " + data.results[0].title;
+        modalItem.textContent = food + " recommendation: " + data.results[num].title;
         modalPrice.textContent = food + " Price: " + "-------------";
-        modalCalories.textContent = food + " Calories: " + data.results[0].nutrition.nutrients[0].amount;
+        modalCalories.textContent = food + " Calories: " + data.results[num].nutrition.nutrients[0].amount;
 
         
     
