@@ -54,8 +54,6 @@ var foodCalories;
 //PRIMARY FUNCTIONS -------------------------------------------------------------------------------------------------------------------------------
 function init () {
     document.getElementById('id01').style.display='block'; style="width:auto;"
-    var num = Math.floor((Math.random() * 3));
-    
     
 }
 
@@ -173,14 +171,17 @@ console.log("Food Choice is: ", foodChoice);
 
 //Spoonacular API for food menu item - this function is called when a user selects a food type, the function finds menu items from over 800 fast food and chain restaurants
 var apiKeyNagesh = "9106359dad954cc8820fb65a7927d657";
+var apiKeyNagesh2 = "4f00ba5ccb8145a7abb0d9eeec8992f4";
 var apiKeyChris = "2fe6c814325d4bf690bbef8390f08a9c";
 var apiKeyKevin = "053c20d29c3d4bcba7deb8dbf8b40b1d";
+var apiKeyPieter = "d0654c3acc06487db8a7962773177457";
 
-var apiList = [apiKeyChris, apiKeyKevin, apiKeyNagesh];
+var apiList = [apiKeyChris, apiKeyKevin, apiKeyNagesh, apiKeyNagesh2, apiKeyPieter];
 
 
 function fetchFood(food) {
     var randNum = Math.floor((Math.random() * apiList.length));
+    //generates a random number from 0 to the length of the list - 1;
     console.log(randNum);
     //
     var randomApi = apiList[randNum]
@@ -384,6 +385,11 @@ loginButton.addEventListener("click", function (event) {
     } else {
         passwordError.setAttribute("style", "display: ");
     }
+})
+
+modalThirsty.addEventListener("click", function (event) {
+    event.preventDefault();
+    
 })
 
     

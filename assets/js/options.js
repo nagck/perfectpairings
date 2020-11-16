@@ -1,5 +1,4 @@
-
-var Wine options =
+var wineOptions =
 [
   {
     text: 'Light Alcohol Sweet White',
@@ -38,7 +37,7 @@ var Wine options =
   }
 ];
 
-var Pop options =
+var popOptions =
 [
   {
     text: 'Coke',
@@ -77,7 +76,7 @@ var Pop options =
   }
 ];
 
-var Cocktails options =
+var cocktailOptions =
 [
   {
     text: 'Mojito',
@@ -116,7 +115,7 @@ var Cocktails options =
   }
 ];
 
-var Liquor options =
+var liquorOptions =
 [
   {
     text: 'Champagne',
@@ -155,7 +154,7 @@ var Liquor options =
   }
 ];
 
-var Beer options =
+var beerOptions =
 [
   {
     text: 'Bud Light',
@@ -194,7 +193,7 @@ var Beer options =
   }
 ];
 
-var Smoothies options =
+var SmoothieOptions =
 [
   {
     text: 'Strawberry Banana Smoothie',
