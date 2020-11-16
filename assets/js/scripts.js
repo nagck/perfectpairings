@@ -44,6 +44,9 @@ var drinkMenu = {
 }
 
 //PRIMARY FUNCTIONS -------------------------------------------------------------------------------------------------------------------------------
+function init () {
+    document.getElementById('id01').style.display='block'; style="width:auto;"
+}
 
 //this function is called when a user selects an item from the dropdown, the choice is passed in and then this function matches the perfect drink
 function drinkMatch(food) {
@@ -440,3 +443,4 @@ gifCloseButton.addEventListener("click", function (event) {
 })
 
     
+init();
