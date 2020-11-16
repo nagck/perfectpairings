@@ -134,12 +134,13 @@ function foodMatch (drink) {
     }
     modalThirsty.setAttribute("style", "display: none ");
     modalHungry.setAttribute("style", "display: ");
+
+    modalItem.textContent = drink + " recommendation: " + data.results[num].title;
+    modalPrice.textContent = drink + " Price: " + "-------------";
+    modalCalories.textContent = drink + " Calories: " + data.results[num].nutrition.nutrients[0].amount;
 }
 //FETCH CALLS--------------------------------------------------------------------------------------------------------------------------------------
 function renderGifs(item){ 
-
-    // var searchTerm = document.querySelector("#search").value;
-    //var search = "";
     
     //--fetch API key
     fetch("https://api.giphy.com/v1/gifs/search?q='+" + item + "&api_key=fhyjxSw2icjRND3sWkVDSIduWRwkEPsI&limit=1")
@@ -167,6 +168,74 @@ var wineUrl = "https://api.spoonacular.com/food/wine/pairing?food=" + foodChoice
 console.log("Food Choice is: ", foodChoice);  
   
 //this function is called when a user selects a food type, the function matches the perfect wine pair
+
+//Spoonacular API for food menu item - this function is called when a user selects a food type, the function finds menu items from over 800 fast food and chain restaurants
+var apiKeyNagesh = "9106359dad954cc8820fb65a7927d657";
+var apiKeyChris = "2fe6c814325d4bf690bbef8390f08a9c";
+var apiKeyKevin = "053c20d29c3d4bcba7deb8dbf8b40b1d";
+
+var apiList = [apiKeyChris, apiKeyKevin, apiKeyNagesh];
+
+
+function fetchFood(food) {
+    var randNum = Math.floor((Math.random() * apiList.length));
+    console.log(randNum);
+    //
+    var randomApi = apiList[randNum]
+    console.log(randomApi);
+    var foodMenuChoice = food;
+    // var foodMenuUrl = "https://api.spoonacular.com/food/menuItems/search?query=" + foodMenuChoice + "&number=3" + "&apiKey=" + apiKeyChris;
+    var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + foodMenuChoice + "&maxCalories=1500" + "&number=3" + "&apiKey=" + randomApi;
+    // var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2" + "&apiKey=" + apiKeyChris;
+    
+    console.log(foodItemUrl);
+    //Fetch for Food Menu
+    fetch (foodItemUrl, {
+    method: 'GET',  
+    })      
+    .then(function(response) {
+    return response.json();
+    })  
+    .then(function (data) {
+        var num = Math.floor((Math.random() * 3));
+        //generates a random number from 0 - 2;
+        console.log(data);
+        console.log(num)
+        
+        modalItem.textContent = food + " recommendation: " + data.results[num].title;
+        modalPrice.textContent = food + " Price: " + "-------------";
+        modalCalories.textContent = food + " Calories: " + data.results[num].nutrition.nutrients[0].amount;
+
+    });
+}
+
+function fetchDrink(drink) {
+    var randNum = Math.floor((Math.random() * apiList.length));
+    console.log(randNum);
+    //
+    var randomApi = apiList[randNum]
+    console.log(randomApi);
+    var drinkMenuChoice = drink;
+    // var foodMenuUrl = "https://api.spoonacular.com/food/menuItems/search?query=" + foodMenuChoice + "&number=3" + "&apiKey=" + apiKeyChris;
+    var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + drinkMenuChoice + "&maxCalories=1500" + "&type=beverage" + "&number=3" + "&apiKey=" + randomApi;
+    // var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2" + "&apiKey=" + apiKeyChris;
+    
+    console.log(foodItemUrl);
+    //Fetch for Food Menu
+    fetch (foodItemUrl, {
+    method: 'GET',  
+    })      
+    .then(function(response) {
+    return response.json();
+    })  
+    .then(function (data) {
+        var num = Math.floor((Math.random() * 3));
+        //generates a random number from 0 - 2;
+        console.log(data);
+        console.log(num)
+
+    });
+}
 
 function winePair() {
     console.log(wineUrl);
@@ -249,78 +318,6 @@ function winePair() {
                 
             }
         });
-}
-
-//Spoonacular API for food menu item - this function is called when a user selects a food type, the function finds menu items from over 800 fast food and chain restaurants
-var apiKey = "9106359dad954cc8820fb65a7927d657";
-var apiKeyChris = "2fe6c814325d4bf690bbef8390f08a9c";
-var apiKeyKevin = "053c20d29c3d4bcba7deb8dbf8b40b1d";
-
-var apiList = [apiKeyChris, apiKeyKevin, apiKeyNagesh];
-
-
-function fetchFood(food) {
-    var randNum = Math.floor((Math.random() * apiList.length));
-    console.log(randNum);
-    //
-    var randomApi = apiList[randNum]
-    console.log(randomApi);
-    var foodMenuChoice = food;
-    // var foodMenuUrl = "https://api.spoonacular.com/food/menuItems/search?query=" + foodMenuChoice + "&number=3" + "&apiKey=" + apiKeyChris;
-    var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + foodMenuChoice + "&maxCalories=1500" + "&number=3" + "&apiKey=" + randomApi;
-    // var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2" + "&apiKey=" + apiKeyChris;
-    
-    console.log(foodItemUrl);
-    //Fetch for Food Menu
-    fetch (foodItemUrl, {
-    method: 'GET',  
-    })      
-    .then(function(response) {
-    return response.json();
-    })  
-    .then(function (data) {
-        var num = Math.floor((Math.random() * 3));
-        //generates a random number from 0 - 2;
-        console.log(data);
-        console.log(num)
-        
-        modalItem.textContent = food + " recommendation: " + data.results[num].title;
-        modalPrice.textContent = food + " Price: " + "-------------";
-        modalCalories.textContent = food + " Calories: " + data.results[num].nutrition.nutrients[0].amount;
-
-    });
-}
-
-function fetchDrink(food) {
-    var randNum = Math.floor((Math.random() * apiList.length));
-    console.log(randNum);
-    //
-    var randomApi = apiList[randNum]
-    console.log(randomApi);
-    var foodMenuChoice = food;
-    // var foodMenuUrl = "https://api.spoonacular.com/food/menuItems/search?query=" + foodMenuChoice + "&number=3" + "&apiKey=" + apiKeyChris;
-    var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + foodMenuChoice + "&maxCalories=1500" + "&number=3" + "&apiKey=" + randomApi;
-    // var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2" + "&apiKey=" + apiKeyChris;
-    
-    console.log(foodItemUrl);
-    //Fetch for Food Menu
-    fetch (foodItemUrl, {
-    method: 'GET',  
-    })      
-    .then(function(response) {
-    return response.json();
-    })  
-    .then(function (data) {
-        var num = Math.floor((Math.random() * 3));
-        //generates a random number from 0 - 2;
-        console.log(data);
-        console.log(num)
-        
-        modalItem.textContent = drink + " recommendation: " + data.results[num].title;
-        modalPrice.textContent = drink + " Price: " + "-------------";
-        modalCalories.textContent = drink + " Calories: " + data.results[num].nutrition.nutrients[0].amount;
-
-    });
 }
 
 //EVENT LISTENERS -------------------------------------------------------------------------------------------------------------------------------
