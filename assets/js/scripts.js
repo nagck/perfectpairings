@@ -18,7 +18,7 @@ var modalCalories = document.querySelector("#calories")
 var modalThirsty = document.querySelector(".thirstyButton");
 var modalHungry = document.querySelector(".hungryButton");
 
-var modalMain = document.querySelector(".modal");
+var modalMain = document.querySelector(".modalMain");
 var modalClose = document.querySelector(".modal-close");
 var modalDelete = document.querySelector(".delete");
 var modalImage = document.querySelector(".matchImage");
