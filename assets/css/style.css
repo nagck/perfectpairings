@@ -27,6 +27,10 @@ button {
 button:hover {
     opacity: 0.8;
 }
+
+#userError, #passwordError{
+    color: red;
+}
   
 /* Extra styles for the cancel button */
 .cancelbtn {

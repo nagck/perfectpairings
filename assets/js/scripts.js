@@ -10,6 +10,8 @@ var drinkList = document.querySelector(".drinkSection");
 var loginSection = document.querySelector(".inputGroup");
 var loginUser = document.querySelector("#userName");
 var loginPassword = document.querySelector("#userPassword");
+var userError = document.querySelector("#userError");
+var passwordError = document.querySelector("#passwordError")
 var loginButton = document.querySelector("#loginButton");
 //these are targets for login section
 
@@ -379,6 +381,8 @@ loginButton.addEventListener("click", function (event) {
     console.log(loginPassword.value.trim());
     if (loginUser.value.trim() === "Admin" && loginPassword.value.trim() === "Admin") {
         document.getElementById('id01').style.display='none';
+    } else {
+        passwordError.setAttribute("style", "display: ");
     }
 })
 
