@@ -256,16 +256,18 @@ var apiKey = "9106359dad954cc8820fb65a7927d657";
 var apiKeyChris = "2fe6c814325d4bf690bbef8390f08a9c";
 var apiKeyKevin = "053c20d29c3d4bcba7deb8dbf8b40b1d";
 
-var apiList = ["2fe6c814325d4bf690bbef8390f08a9c", "053c20d29c3d4bcba7deb8dbf8b40b1d"];
+var apiList = [apiKeyChris, apiKeyKevin, apiKeyNagesh];
 
 
 function fetchFood(food) {
-    var randNum = Math.floor((Math.random() * 2));
+    var randNum = Math.floor((Math.random() * apiList.length));
+    console.log(randNum);
+    //
     var randomApi = apiList[randNum]
     console.log(randomApi);
     var foodMenuChoice = food;
     // var foodMenuUrl = "https://api.spoonacular.com/food/menuItems/search?query=" + foodMenuChoice + "&number=3" + "&apiKey=" + apiKeyChris;
-    var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + foodMenuChoice + "&maxCalories=1000" + "&number=3" + "&apiKey=" + randomApi;
+    var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + foodMenuChoice + "&maxCalories=1500" + "&number=3" + "&apiKey=" + randomApi;
     // var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2" + "&apiKey=" + apiKeyChris;
     
     console.log(foodItemUrl);
@@ -277,12 +279,14 @@ function fetchFood(food) {
     return response.json();
     })  
     .then(function (data) {
-        // console.log(foodCalories = data.results[0].nutrition.nutrients[0].amount)
         var num = Math.floor((Math.random() * 3));
+        //generates a random number from 0 - 2;
+        console.log(data);
+        console.log(num)
         
-        modalItem.textContent = food + " recommendation: " + data.results[num].title;
-        modalPrice.textContent = food + " Price: " + "[related item PRICE from api]";
-        modalCalories.textContent = food + " Calories: " + data.results[num].nutrition.nutrients[0].amount;
+        modalItem.textContent = food + " recommendation: " + data.results[0].title;
+        modalPrice.textContent = food + " Price: " + "-------------";
+        modalCalories.textContent = food + " Calories: " + data.results[0].nutrition.nutrients[0].amount;
 
         
     
