@@ -177,16 +177,6 @@ p1 {
     display: flex;
     flex-direction: column;
 }
-
-header {
-    background-color: #f1f1f1;
-    padding: 20px 10px;
-    position: relative;
-    top: 0;
-    width: 100%;
-    transition: 0.2s;
-}
-
       
 .myDIV:hover + .overlay {
     opacity: 1.0;

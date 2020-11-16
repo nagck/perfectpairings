@@ -18,7 +18,7 @@ var modalCalories = document.querySelector("#calories")
 var modalThirsty = document.querySelector(".thirstyButton");
 var modalHungry = document.querySelector(".hungryButton");
 
-var modalMain = document.querySelector(".modal");
+var modalMain = document.querySelector(".modalMain");
 var modalClose = document.querySelector(".modal-close");
 var modalDelete = document.querySelector(".delete");
 var modalImage = document.querySelector(".matchImage");
@@ -44,11 +44,14 @@ var drinkMenu = {
 }
 
 //PRIMARY FUNCTIONS -------------------------------------------------------------------------------------------------------------------------------
+function init () {
+    document.getElementById('id01').style.display='block'; style="width:auto;"
+}
 
 //this function is called when a user selects an item from the dropdown, the choice is passed in and then this function matches the perfect drink
 function drinkMatch(food) {
     var foodPrice = foodMenu[food];
-    fetchFood(food);
+    // fetchFood(food);
     //---------------API CALL FOR DETAILS ABOUT FOOD HERE;
     var matchingDrink;
     var drinkPrice;
@@ -440,3 +443,4 @@ gifCloseButton.addEventListener("click", function (event) {
 })
 
     
+init();
