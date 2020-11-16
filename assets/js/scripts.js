@@ -49,6 +49,7 @@ var drinkMenu = {
 function drinkMatch(food) {
     var foodPrice = foodMenu[food];
     fetchFood(food);
+    //---------------API CALL FOR DETAILS ABOUT FOOD HERE;
     var matchingDrink;
     var drinkPrice;
     
@@ -128,7 +129,6 @@ function foodMatch (drink) {
     modalItem.textContent = drink + " recommendation: " + "[related item from api]";
     modalPrice.textContent = drink + " Price: " + "[related item PRICE from api]";
     modalCalories.textContent = drink + " Calories: " + "[related item calories from api]";
-    
 }
 //FETCH CALLS--------------------------------------------------------------------------------------------------------------------------------------
 function renderGifs(item){ 
