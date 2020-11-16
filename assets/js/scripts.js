@@ -105,7 +105,7 @@ function drinkMatch(food) {
 //this is the same as drinkMatch, but does the opposite for when someone selects their drink of choice
 function foodMatch (drink) {
     var drinkPrice = drinkMenu[drink];
-    fetchDrink(drink);
+    // fetchDrink(drink);
     var matchingFood;
     var foodPrice;
     if (drink === "Wine") {
