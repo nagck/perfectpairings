@@ -43,6 +43,9 @@ var drinkMenu = {
     "Cocktails" : 8.10
 }
 
+var foodTitle;
+var foodCalories;
+
 //PRIMARY FUNCTIONS -------------------------------------------------------------------------------------------------------------------------------
 function init () {
     document.getElementById('id01').style.display='block'; style="width:auto;"
@@ -51,7 +54,7 @@ function init () {
 //this function is called when a user selects an item from the dropdown, the choice is passed in and then this function matches the perfect drink
 function drinkMatch(food) {
     var foodPrice = foodMenu[food];
-    // fetchFood(food);
+    fetchFood(food);
     //---------------API CALL FOR DETAILS ABOUT FOOD HERE;
     var matchingDrink;
     var drinkPrice;
@@ -90,10 +93,6 @@ function drinkMatch(food) {
     }
     modalThirsty.setAttribute("style", "display: ");
     modalHungry.setAttribute("style", "display: none");
-
-    modalItem.textContent = food + " recommendation: " + "[related item from api]";
-    modalPrice.textContent = food + " Price: " + "[related item PRICE from api]";
-    modalCalories.textContent = food + " Calories: " + "[related item calories from api]";
    
 }
 
@@ -251,22 +250,32 @@ function winePair() {
 
 //Spoonacular API for food menu item - this function is called when a user selects a food type, the function finds menu items from over 800 fast food and chain restaurants
 var apiKey = "9106359dad954cc8820fb65a7927d657";
+var apiKeyChris = "932b49d3d5254977b66c4adec1d6f94c";
 
 
 function fetchFood(food) {
     var foodMenuChoice = food;
-    var foodMenuUrl = "https://api.spoonacular.com/food/menuItems/search?query=" + foodMenuChoice + "&number=3" + "&apiKey=" + apiKey;
+    // var foodMenuUrl = "https://api.spoonacular.com/food/menuItems/search?query=" + foodMenuChoice + "&number=3" + "&apiKey=" + apiKeyChris;
+    var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + foodMenuChoice + "&maxCalories=1000" + "&number=3" + "&apiKey=" + apiKeyChris;
+    // var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2" + "&apiKey=" + apiKeyChris;
     
-    console.log(foodMenuUrl);
+    console.log(foodItemUrl);
     //Fetch for Food Menu
-    fetch (foodMenuUrl, {
+    fetch (foodItemUrl, {
     method: 'GET',  
     })      
     .then(function(response) {
     return response.json();
     })  
     .then(function (data) {
-    console.log(data);
+        // console.log(foodCalories = data.results[0].nutrition.nutrients[0].amount)
+        
+        modalItem.textContent = food + " recommendation: " + data.results[0].title;
+        modalPrice.textContent = food + " Price: " + "[related item PRICE from api]";
+        modalCalories.textContent = food + " Calories: " + data.results[0].nutrition.nutrients[0].amount;
+
+        
+    
         
         // if (foodMenuChoice === "Pasta") {
         //     $("#foodmenu").empty();
