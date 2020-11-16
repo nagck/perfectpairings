@@ -1,4 +1,3 @@
-options.js
 
 var Wine options =
 [
