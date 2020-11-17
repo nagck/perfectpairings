@@ -184,11 +184,11 @@ function fetchFood(food) {
     //generates a random number from 0 to the length of the list - 1;
     console.log(randNum);
     //
-    var randomApi = apiList[randNum]
+    var randomApi = apiList[randNum];
     console.log(randomApi);
     var foodMenuChoice = food;
     // var foodMenuUrl = "https://api.spoonacular.com/food/menuItems/search?query=" + foodMenuChoice + "&number=3" + "&apiKey=" + apiKeyChris;
-    var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + foodMenuChoice + "&maxCalories=1500" + "&number=3" + "&apiKey=" + randomApi;
+    var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + foodMenuChoice + "&fillIngredients=true" + "&maxCalories=1500" + "&number=3" + "&apiKey=" + randomApi;
     // var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2" + "&apiKey=" + apiKeyChris;
     
     console.log(foodItemUrl);
@@ -203,10 +203,15 @@ function fetchFood(food) {
         var num = Math.floor((Math.random() * 3));
         //generates a random number from 0 - 2;
         console.log(data);
-        console.log(num)
+        console.log(num);
+        var listIngredients = data.results[num].missedIngredients;
+        var ingredientsArray = [];
         
+        for (let i = 0;  i < listIngredients.length; i++) {
+            ingredientsArray.push(listIngredients[i].name);
+        }
         modalItem.textContent = food + " recommendation: " + data.results[num].title;
-        modalPrice.textContent = food + " Price: " + "-------------";
+        modalPrice.textContent = "Ingredients: " + ingredientsArray;
         modalCalories.textContent = food + " Calories: " + data.results[num].nutrition.nutrients[0].amount;
 
     });
