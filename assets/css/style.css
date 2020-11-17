@@ -191,7 +191,7 @@ p1 {
     opacity: 1.0;
   }
 
-.overlay,img:hover {
+.overlay,figure:hover {
     opacity: 0.5;
     transition: all .3s ease-in-out;
 }
