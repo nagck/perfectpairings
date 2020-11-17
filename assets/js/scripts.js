@@ -210,9 +210,9 @@ function fetchFood(food) {
         for (let i = 0;  i < listIngredients.length; i++) {
             ingredientsArray.push(listIngredients[i].name);
         }
-        modalItem.textContent = "Recommendation: " + data.results[num].title;
-        modalIngredients.textContent = "Ingredients: " + ingredientsArray;
-        modalCalories.textContent = "Calories: " + data.results[num].nutrition.nutrients[0].amount;
+        modalItem.textContent = " " + data.results[num].title;
+        modalIngredients.textContent = " " + ingredientsArray;
+        modalCalories.textContent = " " + data.results[num].nutrition.nutrients[0].amount;
 
     });
 }
