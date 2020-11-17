@@ -24,6 +24,8 @@ var modalThirsty = document.querySelector(".thirstyButton");
 var modalHungry = document.querySelector(".hungryButton");
 
 var modalMain = document.querySelector(".modalMain");
+var modalDrinkPair = document.querySelector(".modalDrinKPair");
+var modalFoodPair = document.querySelector(".modalFoodPair");
 var modalClose = document.querySelector(".modal-close");
 var modalDelete = document.querySelector(".delete");
 var modalImage = document.querySelector(".matchImage");
@@ -355,7 +357,7 @@ loginButton.addEventListener("click", function (event) {
 
 modalThirsty.addEventListener("click", function (event) {
     event.preventDefault();
-    
+    // modalDrinkPair.classList.add("is-active");
 })
 
     
