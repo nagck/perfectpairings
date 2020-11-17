@@ -24,8 +24,8 @@ var modalThirsty = document.querySelector(".thirstyButton");
 var modalHungry = document.querySelector(".hungryButton");
 
 var modalMain = document.querySelector(".modalMain");
-var modalDrinkPair = document.querySelector(".modalDrinKPair");
-var modalFoodPair = document.querySelector(".modalFoodPair");
+var modalDrinkPair = document.querySelector("#modalDrink");
+var modalFoodPair = document.querySelector("#modalFood");
 var modalClose = document.querySelector(".modal-close");
 var modalDelete = document.querySelector(".delete");
 var modalImage = document.querySelector(".matchImage");
@@ -62,7 +62,7 @@ function init () {
 //this function is called when a user selects an item from the dropdown, the choice is passed in and then this function matches the perfect drink
 function drinkMatch(food) {
     var foodPrice = foodMenu[food];
-    fetchFood(food);
+    // fetchFood(food);
     //---------------API CALL FOR DETAILS ABOUT FOOD HERE;
     var matchingDrink;
     var drinkPrice;
@@ -173,9 +173,9 @@ function fetchFood(food) {
         for (let i = 0;  i < listIngredients.length; i++) {
             ingredientsArray.push(listIngredients[i].name);
         }
-        modalItem.textContent = food + " recommendation: " + data.results[num].title;
+        modalItem.textContent = "Recommendation: " + data.results[num].title;
         modalIngredients.textContent = "Ingredients: " + ingredientsArray;
-        modalCalories.textContent = food + " Calories: " + data.results[num].nutrition.nutrients[0].amount;
+        modalCalories.textContent = "Calories: " + data.results[num].nutrition.nutrients[0].amount;
 
     });
 }
@@ -356,8 +356,12 @@ loginButton.addEventListener("click", function (event) {
 })
 
 modalThirsty.addEventListener("click", function (event) {
-    event.preventDefault();
-    // modalDrinkPair.classList.add("is-active");
+    // modalMain.classList.remove("is-active");
+    modalDrinkPair.classList.add("is-active");
+})
+
+modalHungry.addEventListener("click", function (event) {
+    modalFoodPair.classList.add("is-active");
 })
 
     
