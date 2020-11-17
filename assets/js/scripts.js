@@ -38,9 +38,7 @@ var modalGif = document.querySelector(".modalGif")
 var gifModalButton = document.querySelector(".gifButton");
 var gifCloseButton = modalGif.querySelector(".gifDelete");
 
-var listOfFood = ["Pasta", "Rice Noodles", "Pizza", "Breakfast", "Spicy Curry", "Bread", "Salads", "Desserts"];
-var listOfDrinks = ["Wine", "Pop", "Cocktails", "Liquor", "Beer", "Smoothies"];
-//these are the lists of food and drink so far, we will most likely just use these for testing until we can start pulling from multiple food/drink apis
+var drinkClose = document.querySelector("#drinkClose");
 
 var foodTitle;
 var foodCalories;
@@ -213,33 +211,33 @@ function fetchFood(food) {
     });
 }
 
-function fetchDrink(drink) {
-    var randNum = Math.floor((Math.random() * apiList.length));
-    console.log(randNum);
-    //
-    var randomApi = apiList[randNum]
-    console.log(randomApi);
-    var drinkMenuChoice = drink;
-    // var foodMenuUrl = "https://api.spoonacular.com/food/menuItems/search?query=" + foodMenuChoice + "&number=3" + "&apiKey=" + apiKeyChris;
-    var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + drinkMenuChoice + "&maxCalories=1500" + "&type=beverage" + "&number=3" + "&apiKey=" + randomApi;
-    // var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2" + "&apiKey=" + apiKeyChris;
+// function fetchDrink(drink) {
+//     var randNum = Math.floor((Math.random() * apiList.length));
+//     console.log(randNum);
+//     //
+//     var randomApi = apiList[randNum]
+//     console.log(randomApi);
+//     var drinkMenuChoice = drink;
+//     // var foodMenuUrl = "https://api.spoonacular.com/food/menuItems/search?query=" + foodMenuChoice + "&number=3" + "&apiKey=" + apiKeyChris;
+//     var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + drinkMenuChoice + "&maxCalories=1500" + "&type=beverage" + "&number=3" + "&apiKey=" + randomApi;
+//     // var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2" + "&apiKey=" + apiKeyChris;
     
-    console.log(foodItemUrl);
-    //Fetch for Food Menu
-    fetch (foodItemUrl, {
-    method: 'GET',  
-    })      
-    .then(function(response) {
-    return response.json();
-    })  
-    .then(function (data) {
-        var num = Math.floor((Math.random() * 3));
-        //generates a random number from 0 - 2;
-        console.log(data);
-        console.log(num)
+//     console.log(foodItemUrl);
+//     //Fetch for Food Menu
+//     fetch (foodItemUrl, {
+//     method: 'GET',  
+//     })      
+//     .then(function(response) {
+//     return response.json();
+//     })  
+//     .then(function (data) {
+//         var num = Math.floor((Math.random() * 3));
+//         //generates a random number from 0 - 2;
+//         console.log(data);
+//         console.log(num)
 
-    });
-}
+//     });
+// }
 
 // function winePair() {
 //     console.log(wineUrl);
@@ -387,6 +385,11 @@ loginButton.addEventListener("click", function (event) {
     } else {
         passwordError.setAttribute("style", "display: ");
     }
+})
+
+drinkClose.addEventListener("click", function(event) {
+    modalMain.classList.remove("is-active");
+    modalDrinkPair.classList.remove("is-active");
 })
 //TAKES CURRENT FOOD CHOICE AND RECOMMENDS A DRINK
 modalThirsty.addEventListener("click", function (event) {
