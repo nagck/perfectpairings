@@ -1,6 +1,6 @@
 //TRACKING AND TARGETING VARIABLES -------------------------------------------------------------------------------------------------------------------------------
-
-var mode = 0;
+var currentFood;
+var currentDrink;
 //this does nothing at the moment
 
 var foodList = document.querySelector(".foodSection");
@@ -17,7 +17,11 @@ var loginButton = document.querySelector("#loginButton");
 
 var modalItem = document.querySelector("#item");
 var modalIngredients = document.querySelector("#ingredients");
-var modalCalories = document.querySelector("#calories")
+var modalCalories = document.querySelector("#calories");
+
+var modalItemDrink = document.querySelector("#itemDrink");
+var modalCaloriesDrink = document.querySelector("#caloriesDrink")
+var modalAbvDrink = document.querySelector("#abvDrink");
 //these variables are targets for the top of the menu, basically what is showing when the menu isn't clicked
 
 var modalThirsty = document.querySelector(".thirstyButton");
@@ -38,18 +42,6 @@ var listOfFood = ["Pasta", "Rice Noodles", "Pizza", "Breakfast", "Spicy Curry", 
 var listOfDrinks = ["Wine", "Pop", "Cocktails", "Liquor", "Beer", "Smoothies"];
 //these are the lists of food and drink so far, we will most likely just use these for testing until we can start pulling from multiple food/drink apis
 
-var foodMenu = {
-    "Pasta" : 6.90,
-    "Pizza" : 12.40,
-    "Rice Noodles" : 9.10
-}
-
-var drinkMenu = {
-    "Beer" : 2.70,
-    "Wine" : 12.00,
-    "Cocktails" : 8.10
-}
-
 var foodTitle;
 var foodCalories;
 
@@ -61,11 +53,16 @@ function init () {
 
 //this function is called when a user selects an item from the dropdown, the choice is passed in and then this function matches the perfect drink
 function drinkMatch(food) {
-    var foodPrice = foodMenu[food];
-    // fetchFood(food);
+    modalItem.textContent = "Recommendation: " + ""
+    modalIngredients.textContent = "Ingredients: " + ""
+    modalCalories.textContent = "Calories: " + "";
+
+    currentFood = food;
+    
+    console.log(currentFood)
+    console.log(food)
+    fetchFood(food);
     //---------------API CALL FOR DETAILS ABOUT FOOD HERE;
-    var matchingDrink;
-    var drinkPrice;
     
     modalThirsty.setAttribute("style", "display: ");
     modalHungry.setAttribute("style", "display: none");
@@ -74,33 +71,69 @@ function drinkMatch(food) {
 
 //this is the same as drinkMatch, but does the opposite for when someone selects their drink of choice
 function foodMatch (drink) {
-    var drinkPrice = drinkMenu[drink];
+    currentDrink = drink;
+    modalItem.textContent = "Recommendation: " + ""
+    modalIngredients.textContent = "Calories: " + ""
+    modalCalories.textContent = "Abv: " + "";
     // fetchDrink(drink);
-    var matchingFood;
-    if (drink === "Wine") {
-        matchingFood = "Pasta";
+
+    //update textcontent of main modal to reflect drink recommendation
+    if (currentDrink === "Wine and Dine") {
+        var randNumberDrink = Math.floor((Math.random() * wineOptions.length));
+        modalItem.textContent = "Recommendation: " + "wine title"
+        modalIngredients.textContent = "Calories: " + " wine calories"
+        modalCalories.textContent = "Abv: " + "wine abv";
+    } else if (currentDrink === "Soda") {
+        var randNumberDrink = Math.floor((Math.random() * popOptions.length));
+        modalItem.textContent = "Recommendation: " + popOptions[randNumberDrink].text;
+        modalIngredients.textContent = "Calories: " + popOptions[randNumberDrink].Calories;
+        modalCalories.textContent = "Abv: " + popOptions[randNumberDrink].ABV;
+    } else if (currentDrink === "Cocktails") {
+        var randNumberDrink = Math.floor((Math.random() * cocktailOptions.length));
+        modalItem.textContent = "Recommendation: " + cocktailOptions[randNumberDrink].text;
+        modalIngredients.textContent = "Calories: " + cocktailOptions[randNumberDrink].Calories;
+        modalCalories.textContent = "Abv: " + cocktailOptions[randNumberDrink].ABV;
+    }  else if (currentDrink === "Hard Liquor") {
+        var randNumberDrink = Math.floor((Math.random() * liquorOptions.length));
+        modalItem.textContent = "Recommendation: " + liquorOptions[randNumberDrink].text;
+        modalIngredients.textContent = "Calories: " + liquorOptions[randNumberDrink].Calories;
+        modalCalories.textContent = "Abv: " + liquorOptions[randNumberDrink].ABV;
+    }   else if (currentDrink === "Beer") {
+        var randNumberDrink = Math.floor((Math.random() * beerOptions.length));
+        modalItem.textContent = "Recommendation: " + beerOptions[randNumberDrink].text;
+        modalIngredients.textContent = "Calories: " + beerOptions[randNumberDrink].Calories;
+        modalCalories.textContent = "Abv: " + beerOptions[randNumberDrink].ABV;
+    }   else if (currentDrink === "Smoothies") {
+        var randNumberDrink = Math.floor((Math.random() * smoothieOptions.length));
+        modalItem.textContent = "Recommendation: " + smoothieOptions[randNumberDrink].text;
+        modalIngredients.textContent = "Calories: " + smoothieOptions[randNumberDrink].Calories;
+        modalCalories.textContent = "Abv: " + smoothieOptions[randNumberDrink].ABV;
     }
-    if (drink === "Pop") {
-        matchingFood = "Pizza";
-    }
-    if (drink === "Cocktails") {
-        matchingFood = "Rice Noodles";
-    }
-    if (drink === "Liquor") {
-        matchingFood = "Salads";
-    }
-    if (drink === "Beer") {
-        matchingFood = "Spicy Curry";
-    }
-    if (drink === "Smoothies") {
-        matchingFood = "Salads";
-    }
+    
     modalThirsty.setAttribute("style", "display: none ");
     modalHungry.setAttribute("style", "display: ");
+}
 
-    // modalItem.textContent = drink + " recommendation: " + data.results[num].title;
-    // modalPrice.textContent = drink + " Price: " + "-------------";
-    // modalCalories.textContent = drink + " Calories: " + data.results[num].nutrition.nutrients[0].amount;
+function drinkPair(currentDrink) {
+    modalItem.textContent = "Recommendation: " + ""
+    modalIngredients.textContent = "Ingredients: " + ""
+    modalCalories.textContent = "Calories: " + "";
+
+    if (currentDrink === "Wine and Dine") {
+        fetchFood("Cheese");
+    } else if (currentDrink === "Soda") {
+        fetchFood("Pizza");
+    } else if (currentDrink === "Cocktails") {
+        fetchFood("Burgers");
+    } else if (currentDrink === "Hard Liquor") {
+        fetchFood("Chinese food")
+    } else if (currentDrink === "Beer") {
+        fetchFood("Mexican Food")
+    } else if (currentDrink === "Smoothies") {
+        fetchFood("Desserts");
+    }
+    modalMain.classList.add("is-active");
+    
 }
 //FETCH CALLS--------------------------------------------------------------------------------------------------------------------------------------
 function renderGifs(item){ 
@@ -308,6 +341,7 @@ drinkList.addEventListener("click", function (event) {
     var element = event.target;
     if (element.matches("img")) {
         console.log(element.alt);
+        currentDrink = element.alt;
         foodMatch(element.alt);
         modalMain.classList.add("is-active");
         renderGifs(element.alt);
@@ -357,11 +391,40 @@ loginButton.addEventListener("click", function (event) {
 
 modalThirsty.addEventListener("click", function (event) {
     // modalMain.classList.remove("is-active");
+    var element = event.target;
     modalDrinkPair.classList.add("is-active");
+    if (currentFood === "Mexican food") {
+        //pull multiple drink options later to randomize
+        modalItemDrink.textContent = beerOptions[1].text;
+        modalCaloriesDrink.textContent = beerOptions[1].Calories;
+        modalAbvDrink.textContent = beerOptions[1].ABV;
+    } else if (currentFood == "Sushi") {
+        modalItemDrink.textContent = beerOptions[4].text;
+        modalCaloriesDrink.textContent = beerOptions[4].Calories;
+        modalAbvDrink.textContent = beerOptions[4].ABV;
+    } else if (currentFood == "Pizza") {
+        modalItemDrink.textContent = popOptions[1].text;
+        modalCaloriesDrink.textContent = popOptions[1].Calories;
+        modalAbvDrink.textContent = popOptions[1].ABV;
+    } else if (currentFood == "Burgers") {
+        modalItemDrink.textContent = wineOptions[4].text;
+        modalCaloriesDrink.textContent = wineOptions[4].Calories;
+        modalAbvDrink.textContent = wineOptions[4].ABV;
+    } else if (currentFood == "Chinese food") {
+        modalItemDrink.textContent = liquorOptions[4].text;
+        modalCaloriesDrink.textContent = liquorOptions[4].Calories;
+        modalAbvDrink.textContent = liquorOptions[4].ABV;
+    } else if (currentFood == "Dessert") {
+        modalItemDrink.textContent = smoothieOptions[0].text;
+        modalCaloriesDrink.textContent = smoothieOptions[0].Calories;
+        modalAbvDrink.textContent = smoothieOptions[0].ABV;
+    }
 })
 
 modalHungry.addEventListener("click", function (event) {
-    modalFoodPair.classList.add("is-active");
+    drinkPair(currentDrink);
+    console.log(currentDrink);
+    console.log(currentFood);
 })
 
     

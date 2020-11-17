@@ -21,7 +21,7 @@ var wineOptions =
     ABV: '12-14%'
   },
   {
-    text: 'Light Alchol Red',
+    text: 'Light Alcohol Red',
     Calories: '135-165',
     ABV: '11-13.5%'
   },
@@ -193,7 +193,7 @@ var beerOptions =
   }
 ];
 
-var SmoothieOptions =
+var smoothieOptions =
 [
   {
     text: 'Strawberry Banana Smoothie',
@@ -211,7 +211,7 @@ var SmoothieOptions =
     ABV: '0%'
   },
   {
-    text: 'Penut Butter Oatmeal',
+    text: 'Peanut Butter Oatmeal',
     Calories: '730',
     ABV: '0%'
   },
@@ -221,7 +221,7 @@ var SmoothieOptions =
     ABV: '0%'
   },
   {
-    text: 'Chocalate Banana Smoothie',
+    text: 'Chocolate Banana Smoothie',
     Calories: '805',
     ABV: '0%'
   },
