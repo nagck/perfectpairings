@@ -3,6 +3,8 @@ var currentFood;
 var currentDrink;
 //this does nothing at the moment
 
+var centerSecret = document.querySelector("#centerSecret");
+
 var foodList = document.querySelector(".foodSection");
 var drinkList = document.querySelector(".drinkSection");
 //these variables target each list for event listeners
@@ -39,6 +41,8 @@ var gifModalButton = document.querySelector(".gifButton");
 var gifCloseButton = modalGif.querySelector(".gifDelete");
 
 var drinkClose = document.querySelector("#drinkClose");
+
+var secretText = document.querySelector(".secret");
 
 var foodTitle;
 var foodCalories;
@@ -433,6 +437,13 @@ modalHungry.addEventListener("click", function (event) {
     console.log(currentDrink);
     console.log(currentFood);
 })
+
+// centerSecret.addEventListener("mouseover", function (event) {
+//     var element = event.target;
+//     console.log(element);
+//     secretText.setAttribute("style", "display: block");
+    
+// });
 
     
 init();
