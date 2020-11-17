@@ -46,6 +46,8 @@ var foodCalories;
 //PRIMARY FUNCTIONS -------------------------------------------------------------------------------------------------------------------------------
 function init () {
     document.getElementById('id01').style.display='block'; style="width:auto;"
+    localStorage.setItem("Username", "Admin");
+    localStorage.setItem("Password", "qwerty123");
     
 }
 
@@ -380,7 +382,9 @@ loginButton.addEventListener("click", function (event) {
     
     console.log(loginUser.value.trim());
     console.log(loginPassword.value.trim());
-    if (loginUser.value.trim() === "Admin" && loginPassword.value.trim() === "Admin") {
+    // if (loginUser.value.trim() === "Admin" && loginPassword.value.trim() === "Admin") {
+    //     document.getElementById('id01').style.display='none';
+    if (loginUser.value.trim() === localStorage.getItem("Username") && loginPassword.value.trim() === localStorage.getItem("Password")) {
         document.getElementById('id01').style.display='none';
     } else {
         passwordError.setAttribute("style", "display: ");
