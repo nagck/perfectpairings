@@ -60,7 +60,7 @@ function init () {
 //this function is called when a user selects an item from the dropdown, the choice is passed in and then this function matches the perfect drink
 function drinkMatch(food) {
     var foodPrice = foodMenu[food];
-    // fetchFood(food);
+    fetchFood(food);
     //---------------API CALL FOR DETAILS ABOUT FOOD HERE;
     var matchingDrink;
     var drinkPrice;
