@@ -130,12 +130,12 @@ span.psw {
     }
 }
 
-p1 {
-    font-family: "Amatic SC", sans-serif
-}
-
-.w3-center {
-    font-family: "Amatic SC", sans-serif
+.about-section {
+    padding: 65px;
+    text-align: center;
+    background-color: #756157;
+    color: white;
+    font-family: "Amatic SC", sans-serif;
 }
 
 /* Container holding the image and the text */
