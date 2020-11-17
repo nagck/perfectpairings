@@ -16,7 +16,7 @@ var loginButton = document.querySelector("#loginButton");
 //these are targets for login section
 
 var modalItem = document.querySelector("#item");
-var modalPrice = document.querySelector("#price");
+var modalIngredients = document.querySelector("#ingredients");
 var modalCalories = document.querySelector("#calories")
 //these variables are targets for the top of the menu, basically what is showing when the menu isn't clicked
 
@@ -211,7 +211,7 @@ function fetchFood(food) {
             ingredientsArray.push(listIngredients[i].name);
         }
         modalItem.textContent = food + " recommendation: " + data.results[num].title;
-        modalPrice.textContent = "Ingredients: " + ingredientsArray;
+        modalIngredients.textContent = "Ingredients: " + ingredientsArray;
         modalCalories.textContent = food + " Calories: " + data.results[num].nutrition.nutrients[0].amount;
 
     });
