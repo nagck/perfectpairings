@@ -388,7 +388,7 @@ loginButton.addEventListener("click", function (event) {
         passwordError.setAttribute("style", "display: ");
     }
 })
-
+//TAKES CURRENT FOOD CHOICE AND RECOMMENDS A DRINK
 modalThirsty.addEventListener("click", function (event) {
     // modalMain.classList.remove("is-active");
     var element = event.target;
