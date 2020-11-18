@@ -156,7 +156,7 @@ span.psw {
 }
 
 .column {
-    background-color: aquamarine;
+    background-color: #756157;
     margin: 10px;
     text-align: center;
 }
@@ -234,7 +234,7 @@ span.psw {
     border-radius: 5px;
     background-color: orange;
     text-align: center;
-    font-family: Helvetica;
+    font-family: "Amatic SC", sans-serif;
     font-size: 32px;
     color: MintCream;
     transition: 0.1s;
