@@ -41,6 +41,9 @@ JOIN THE FEW, THE PROUD..........THE MEMBERS OF PERFECT..............PAIRING AND
 ## Usage
 <instructions>
 You may navigate to each block of content individually by clicking the elements on the navigation bar located at the top of the page
+  
+  
+![Screenshot](perfectpairings\assets\images\screenshot.JPG)
 
 # Codes and Sources
 
