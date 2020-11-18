@@ -156,9 +156,11 @@ span.psw {
 }
 
 .column {
-    background-color: #756157 !important;
+
     margin: 10px;
     text-align: center;
+    background-color: black !important;
+    padding: 1% !important;
 }
 
 .colMiddle {
@@ -239,6 +241,14 @@ span.psw {
 
 .modalList, li {
     font-size: x-large;
+}
+
+b {
+    color: white;
+}
+
+.panel-heading {
+    opacity: 0.7; !important;
 }
 
 /**
