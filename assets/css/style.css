@@ -156,7 +156,7 @@ span.psw {
 }
 
 .column {
-    background-color: #756157;
+    background-color: #756157 !important;
     margin: 10px;
     text-align: center;
 }
