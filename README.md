@@ -4,7 +4,7 @@ Ever scrolled through ubereats, foodora or ritual and couldn't make a decision y
 
 PerfectPairings will provide you with delicious food options and pair your selection with the perfect drink
 
-https://github.com/nagck/perfectpairings
+https://nagck.github.io/perfectpairings/
 
 Still not convinced? A GIF will Convince!
 
