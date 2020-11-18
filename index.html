@@ -247,6 +247,7 @@
                 <div class="modal-background"></div>
                 <div class="modal-card">
                   <header class="modal-card-head">
+                    <p class="modal-card-title"> </p>
                     <button class="delete" aria-label="close"></button>
                   </header>
                   <section class="modal-card-body">
@@ -257,6 +258,7 @@
                           <div class="tile is-ancestor">
                             <div class="tile is-parent box">
                               <div class="tile is-child box notification is-primary">
+                                <p class="title">Recommendation: </p>
                                 <p id="item" class="title"> </p>
                               </div>
                             </div>
@@ -266,11 +268,13 @@
                             
                             <div class="tile is-parent">
                               <article class="tile is-child box notification is-warning">
+                                <p class="title">Ingredients: </p>
                                 <p id="ingredients" class="subtitle"> </p>
                               </article>
                               <br>
-                              <article class="tile is-child is-4 box notification is-success">
-                                <p id="calories" class="subtitle"> </p>
+                              <article class="tile is-child is-5 box notification is-success">
+                                <p class="title">Calories: </p>
+                                <p id="calories" class="title"> </p>
                               </article>
                             </div>
                           
@@ -296,7 +300,7 @@
                     </p>
                   </section>
                   <footer class="modal-card-foot">
-                    <button class="button is-success has-text-weight-bold has-text-warning">
+                    <button class="button is-success is-clickable has-text-weight-bold has-text-warning">
                       <a href=" ">I'm Done!</a></button>
                   </footer>
                 </div>
@@ -314,11 +318,30 @@
                     <div class="card-content">
 
                       <div class="content">
-                        <ol class="modalList">
-                          <li id="itemDrink" style="align-content: flex-start;">Item: </li>
-                          <li id="caloriesDrink">Calories: </li>
-                          <li id="abvDrink">ABV: </li>
-                        </ol>
+
+                        <div class="tile is-ancestor">
+                          <div class="tile is-parent box">
+                            <div class="tile is-child box notification is-primary">
+                              <p class="title">Drink: </p>
+                              <p id="itemDrink" class="title"> </p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="tile is-ancestor box">
+                          
+                          <div class="tile is-parent">
+                            <article class="tile is-child box notification is-warning">
+                              <p class="title">Calories: </p>
+                              <p id="caloriesDrink" class="title"> </p>
+                            </article>
+                            <br>
+                            <article class="tile is-child is-4 box notification is-success">
+                              <p class="title">ABV: </p>
+                              <p id="abvDrink" class="title"> </p>
+                            </article>
+                          </div>
+
                       </div>
                     </div>
                     <footer class="card-footer">
@@ -329,10 +352,7 @@
                       </p>
                     </footer>
                   </div>
-                  <br>
-                  <p class="image is-4by3">
-                    <img class= "matchImage" src="https://bulma.io/images/placeholders/1280x960.png" alt="">
-                  </p>
+                  
                 </section>
                 <footer class="modal-card-foot">
                   <button class="button is-success has-text-weight-bold has-text-warning">
@@ -418,17 +438,21 @@
     <br>
     
  <!-- About Container -->
-  <div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge" id="about">
-    <div class="w3-content">
-      <h3 class="w3-center w3-jumbo" style="margin-bottom:60px">About</h3>
-      <p1>About description...</p1>
-    </div>
-  </div>
+  <section class="about-section">
+    <p style="font-size:65px">About</p>
+    <p style="font-size:30px">
+      Pleasure is just as often a function of our emotional associations as it is of our physical sensations — and for this reason, 
+      there can be psychology as well as physiology at play when it comes to pairing beverages with food. Masters strive to create pairings that equate to an orchestra
+      playing a symphony on your tastebuds. We are humbled to provide you with a webisite that will do its best to help you construct your own concerto that will tune the palette.
+    </p>
+  </section>
 
     <footer class="footer">
       <div class="first has-text-centered" >
         <h2>
           Learn more about the <a href="https://github.com/nagck/perfectpairings">Creators</a>
+          <br>
+          APIs: <a href="https://spoonacular.com/food-api">Spoonacular</a> & <a href="https://developers.giphy.com/">Giphy</a>
           <br>
           The website content
           is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>

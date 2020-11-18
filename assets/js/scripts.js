@@ -76,9 +76,9 @@ function drinkMatch(food) {
 //this is the same as drinkMatch, but does the opposite for when someone selects their drink of choice
 function foodMatch (drink) {
     currentDrink = drink;
-    modalItem.textContent = "Recommendation: " + ""
-    modalIngredients.textContent = "Calories: " + ""
-    modalCalories.textContent = "Abv: " + "";
+    modalItem.textContent = "Recommendation " + ""
+    modalIngredients.textContent = "Calories " + ""
+    modalCalories.textContent = "Abv " + "";
     // fetchDrink(drink);
 
     //update textcontent of main modal to reflect drink recommendation
@@ -89,29 +89,29 @@ function foodMatch (drink) {
         modalCalories.textContent = "Abv: " + "wine abv";
     } else if (currentDrink === "Soda") {
         var randNumberDrink = Math.floor((Math.random() * popOptions.length));
-        modalItem.textContent = "Recommendation: " + popOptions[randNumberDrink].text;
-        modalIngredients.textContent = "Calories: " + popOptions[randNumberDrink].Calories;
-        modalCalories.textContent = "Abv: " + popOptions[randNumberDrink].ABV;
+        modalItem.textContent = " " + popOptions[randNumberDrink].text;
+        modalCalories.textContent = " " + popOptions[randNumberDrink].Calories;
+        modalIngredients.textContent = "ABV: " + popOptions[randNumberDrink].ABV;
     } else if (currentDrink === "Cocktails") {
         var randNumberDrink = Math.floor((Math.random() * cocktailOptions.length));
-        modalItem.textContent = "Recommendation: " + cocktailOptions[randNumberDrink].text;
-        modalIngredients.textContent = "Calories: " + cocktailOptions[randNumberDrink].Calories;
-        modalCalories.textContent = "Abv: " + cocktailOptions[randNumberDrink].ABV;
+        modalItem.textContent = " " + cocktailOptions[randNumberDrink].text;
+        modalCalories.textContent = " " + cocktailOptions[randNumberDrink].Calories;
+        modalIngredients.textContent = "ABV: " + cocktailOptions[randNumberDrink].ABV;
     }  else if (currentDrink === "Hard Liquor") {
         var randNumberDrink = Math.floor((Math.random() * liquorOptions.length));
-        modalItem.textContent = "Recommendation: " + liquorOptions[randNumberDrink].text;
-        modalIngredients.textContent = "Calories: " + liquorOptions[randNumberDrink].Calories;
-        modalCalories.textContent = "Abv: " + liquorOptions[randNumberDrink].ABV;
+        modalItem.textContent = " " + liquorOptions[randNumberDrink].text;
+        modalCalories.textContent = " " + liquorOptions[randNumberDrink].Calories;
+        modalIngredients.textContent = "ABV: " + liquorOptions[randNumberDrink].ABV;
     }   else if (currentDrink === "Beer") {
         var randNumberDrink = Math.floor((Math.random() * beerOptions.length));
-        modalItem.textContent = "Recommendation: " + beerOptions[randNumberDrink].text;
-        modalIngredients.textContent = "Calories: " + beerOptions[randNumberDrink].Calories;
-        modalCalories.textContent = "Abv: " + beerOptions[randNumberDrink].ABV;
+        modalItem.textContent = " " + beerOptions[randNumberDrink].text;
+        modalCalories.textContent = " " + beerOptions[randNumberDrink].Calories;
+        modalIngredients.textContent = "ABV: " + beerOptions[randNumberDrink].ABV;
     }   else if (currentDrink === "Smoothies") {
         var randNumberDrink = Math.floor((Math.random() * smoothieOptions.length));
-        modalItem.textContent = "Recommendation: " + smoothieOptions[randNumberDrink].text;
-        modalIngredients.textContent = "Calories: " + smoothieOptions[randNumberDrink].Calories;
-        modalCalories.textContent = "Abv: " + smoothieOptions[randNumberDrink].ABV;
+        modalItem.textContent = " " + smoothieOptions[randNumberDrink].text;
+        modalCalories.textContent = " " + smoothieOptions[randNumberDrink].Calories;
+        modalIngredients.textContent = "ABV: " + smoothieOptions[randNumberDrink].ABV;
     }
     
     modalThirsty.setAttribute("style", "display: none ");
@@ -210,9 +210,9 @@ function fetchFood(food) {
         for (let i = 0;  i < listIngredients.length; i++) {
             ingredientsArray.push(listIngredients[i].name);
         }
-        modalItem.textContent = "Recommendation: " + data.results[num].title;
-        modalIngredients.textContent = "Ingredients: " + ingredientsArray;
-        modalCalories.textContent = "Calories: " + data.results[num].nutrition.nutrients[0].amount;
+        modalItem.textContent = " " + data.results[num].title;
+        modalIngredients.textContent = " " + ingredientsArray;
+        modalCalories.textContent = " " + data.results[num].nutrition.nutrients[0].amount;
 
     });
 }
