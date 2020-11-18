@@ -213,6 +213,7 @@ function fetchFood(food) {
         modalItem.textContent = " " + data.results[num].title;
         modalIngredients.textContent = " " + ingredientsArray;
         modalCalories.textContent = " " + data.results[num].nutrition.nutrients[0].amount;
+        modalImage.setAttribute("src", data.results[num].image);
 
     });
 }
