@@ -28,6 +28,9 @@ var modalCaloriesDrink = document.querySelector("#caloriesDrink")
 var modalAbvDrink = document.querySelector("#abvDrink");
 //these variables are targets for the top of the menu, basically what is showing when the menu isn't clicked
 
+var modalYellow = document.querySelector("#yellowTitle");
+var modalGreen = document.querySelector("#greenTitle");
+
 var modalThirsty = document.querySelector(".thirstyButton");
 var modalHungry = document.querySelector(".hungryButton");
 
@@ -78,9 +81,9 @@ function drinkMatch(food) {
 //this is the same as drinkMatch, but does the opposite for when someone selects their drink of choice
 function foodMatch (drink) {
     currentDrink = drink;
-    modalItem.textContent = "Recommendation " + ""
-    modalIngredients.textContent = "Calories " + ""
-    modalCalories.textContent = "Abv " + "";
+    modalItem.textContent = "";
+    modalIngredients.textContent = "";
+    modalCalories.textContent = "";
     // fetchDrink(drink);
 
     //update textcontent of main modal to reflect drink recommendation
@@ -88,27 +91,27 @@ function foodMatch (drink) {
         var randNumberDrink = Math.floor((Math.random() * popOptions.length));
         modalItem.textContent = " " + popOptions[randNumberDrink].text;
         modalCalories.textContent = " " + popOptions[randNumberDrink].Calories;
-        modalIngredients.textContent = "ABV: " + popOptions[randNumberDrink].ABV;
+        modalIngredients.textContent = " " + popOptions[randNumberDrink].ABV;
     } else if (currentDrink === "Cocktails") {
         var randNumberDrink = Math.floor((Math.random() * cocktailOptions.length));
         modalItem.textContent = " " + cocktailOptions[randNumberDrink].text;
         modalCalories.textContent = " " + cocktailOptions[randNumberDrink].Calories;
-        modalIngredients.textContent = "ABV: " + cocktailOptions[randNumberDrink].ABV;
+        modalIngredients.textContent = " " + cocktailOptions[randNumberDrink].ABV;
     }  else if (currentDrink === "Hard Liquor") {
         var randNumberDrink = Math.floor((Math.random() * liquorOptions.length));
         modalItem.textContent = " " + liquorOptions[randNumberDrink].text;
         modalCalories.textContent = " " + liquorOptions[randNumberDrink].Calories;
-        modalIngredients.textContent = "ABV: " + liquorOptions[randNumberDrink].ABV;
+        modalIngredients.textContent = " " + liquorOptions[randNumberDrink].ABV;
     }   else if (currentDrink === "Beer") {
         var randNumberDrink = Math.floor((Math.random() * beerOptions.length));
         modalItem.textContent = " " + beerOptions[randNumberDrink].text;
         modalCalories.textContent = " " + beerOptions[randNumberDrink].Calories;
-        modalIngredients.textContent = "ABV: " + beerOptions[randNumberDrink].ABV;
+        modalIngredients.textContent = " " + beerOptions[randNumberDrink].ABV;
     }   else if (currentDrink === "Smoothies") {
         var randNumberDrink = Math.floor((Math.random() * smoothieOptions.length));
         modalItem.textContent = " " + smoothieOptions[randNumberDrink].text;
         modalCalories.textContent = " " + smoothieOptions[randNumberDrink].Calories;
-        modalIngredients.textContent = "ABV: " + smoothieOptions[randNumberDrink].ABV;
+        modalIngredients.textContent = " " + smoothieOptions[randNumberDrink].ABV;
     }
     
     modalThirsty.setAttribute("style", "display: none ");
@@ -380,6 +383,8 @@ function fetchFood(food) {
 
 foodList.addEventListener("click", function (event) {
     var element = event.target;
+    modalYellow.textContent  = "Ingredients: "
+    modalGreen.textContent = "Calories: "
     if (element.matches("img")) {
         console.log(element.alt);
         drinkMatch(element.alt);
@@ -391,6 +396,8 @@ foodList.addEventListener("click", function (event) {
 
 drinkList.addEventListener("click", function (event) {
     var element = event.target;
+    modalYellow.textContent  = "ABV: "
+    modalGreen.textContent = "Calories: "
     if (element.matches("img")) {
         console.log(element.alt);
         currentDrink = element.alt;
@@ -398,6 +405,8 @@ drinkList.addEventListener("click", function (event) {
         modalMain.classList.add("is-active");
         renderGifs(element.alt);
         if (element.alt == "Wine and Dine") {
+            modalYellow.textContent  = "Description: "
+            modalGreen.textContent = "Price: "
             wineRec();
         } 
     }
@@ -484,6 +493,8 @@ modalThirsty.addEventListener("click", function (event) {
 })
 
 modalHungry.addEventListener("click", function (event) {
+    modalYellow.textContent  = "Ingredients: "
+    modalGreen.textContent = "Calories: "
     drinkPair(currentDrink);
     console.log(currentDrink);
     console.log(currentFood);
