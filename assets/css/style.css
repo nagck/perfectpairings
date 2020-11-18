@@ -161,6 +161,7 @@ span.psw {
     text-align: center;
     background-color: black !important;
     padding: 1% !important;
+    border-radius: 100px !important;
 }
 
 .colMiddle {
@@ -248,7 +249,12 @@ b {
 }
 
 .panel-heading {
-    opacity: 0.7 !important;
+    opacity: 0.9 !important;
+    border-radius: 200px !important;
+    padding: 1% !important;
+    width: 200px !important;
+    align-content: center !important;
+    margin: auto;
 }
 
 /**
