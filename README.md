@@ -21,11 +21,11 @@ Still not convinced? A GIF will Convince!
 
 # Team Members
 
-Chris Burns
-Kevin Sajan
-Nagesh Kalegowda
-Sin Kovac
-Pieter Boerma
+* Chris Burns
+* Kevin Sajan
+* Nagesh Kalegowda
+* Sin Kovac
+* Pieter Boerma
 
 # User Story
 
