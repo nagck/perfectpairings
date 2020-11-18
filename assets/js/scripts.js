@@ -328,6 +328,11 @@ function fetchFood(food) {
 
 // This function is called when user selects wine recommendation
     function wineRec() {
+        var randomNum = Math.floor((Math.random() * apiList.length));
+    //generates a random number from 0 to the length of the list - 1;
+        console.log(randomNum);
+    //
+        var randomApi = apiList[randomNum];
         var wineChoice = ["Merlot", "Chardonnay", "Riesling", "Zinfandel", "Malbec"];
         var apiKey = "4f00ba5ccb8145a7abb0d9eeec8992f4";
         var randNum = Math.floor((Math.random() * wineChoice.length));
@@ -336,7 +341,7 @@ function fetchFood(food) {
         //
         var randomWine = wineChoice[randNum];
         console.log(randomWine);
-        var wineUrl = "https://api.spoonacular.com/food/wine/recommendation?wine=" + randomWine + "&number=3" + "&apiKey=" + apiKey;
+        var wineUrl = "https://api.spoonacular.com/food/wine/recommendation?wine=" + randomWine + "&number=3" + "&apiKey=" + randomApi;
         console.log(wineUrl);
         //Fetch for paired Wine
         fetch (wineUrl, {
