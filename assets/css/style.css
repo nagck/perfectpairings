@@ -180,10 +180,6 @@ span.psw {
     align-items: center;
 }
 
-.column {
-    background-color: white;
-}
-
 .rows{
     display: flex;
     flex-direction: column;
@@ -197,7 +193,6 @@ span.psw {
     opacity: 0.5;
     transition: all .3s ease-in-out;
 }
-
 
 .overlay {
     position: absolute;

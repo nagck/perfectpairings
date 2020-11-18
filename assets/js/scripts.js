@@ -21,6 +21,8 @@ var modalItem = document.querySelector("#item");
 var modalIngredients = document.querySelector("#ingredients");
 var modalCalories = document.querySelector("#calories");
 
+var modalImage = document.querySelector("#itemImage");
+
 var modalItemDrink = document.querySelector("#itemDrink");
 var modalCaloriesDrink = document.querySelector("#caloriesDrink")
 var modalAbvDrink = document.querySelector("#abvDrink");
@@ -166,8 +168,6 @@ var wineUrl = "https://api.spoonacular.com/food/wine/pairing?food=" + foodChoice
 
 // QueryURL to get Wine Pairing 
 console.log("Food Choice is: ", foodChoice);  
-  
-//this function is called when a user selects a food type, the function matches the perfect wine pair
 
 //Spoonacular API for food menu item - this function is called when a user selects a food type, the function finds menu items from over 800 fast food and chain restaurants
 var apiKeyNagesh = "9106359dad954cc8820fb65a7927d657";
