@@ -185,14 +185,19 @@ span.psw {
     display: flex;
     flex-direction: column;
 }
-      
-.myDIV:hover + .overlay {
-    opacity: 1.0;
-  }
+    
 
 .overlay,figure:hover {
-    opacity: 0.5;
+    opacity: 0.8;
     transition: all .3s ease-in-out;
+}
+
+.overlay:hover {
+    opacity: 1.0;
+    
+  }
+.myDiv:hover {
+    background-color: white;
 }
 
 .overlay {
