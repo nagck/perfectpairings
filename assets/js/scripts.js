@@ -21,6 +21,8 @@ var modalItem = document.querySelector("#item");
 var modalIngredients = document.querySelector("#ingredients");
 var modalCalories = document.querySelector("#calories");
 
+var modalImage = document.querySelector("#itemImage");
+
 var modalItemDrink = document.querySelector("#itemDrink");
 var modalCaloriesDrink = document.querySelector("#caloriesDrink")
 var modalAbvDrink = document.querySelector("#abvDrink");
@@ -166,8 +168,6 @@ var wineUrl = "https://api.spoonacular.com/food/wine/pairing?food=" + foodChoice
 
 // QueryURL to get Wine Pairing 
 console.log("Food Choice is: ", foodChoice);  
-  
-//this function is called when a user selects a food type, the function matches the perfect wine pair
 
 //Spoonacular API for food menu item - this function is called when a user selects a food type, the function finds menu items from over 800 fast food and chain restaurants
 var apiKeyNagesh = "9106359dad954cc8820fb65a7927d657";
@@ -213,6 +213,7 @@ function fetchFood(food) {
         modalItem.textContent = " " + data.results[num].title;
         modalIngredients.textContent = " " + ingredientsArray;
         modalCalories.textContent = " " + data.results[num].nutrition.nutrients[0].amount;
+        modalImage.setAttribute("src", data.results[num].image);
 
     });
 }
@@ -326,6 +327,50 @@ function fetchFood(food) {
                 
 //             }
 //         });
+
+// This function is called when user selects wine recommendation
+    function winRec() {
+        var wineChoice = ["Merlot", "Chardonnay", "Riesling", "Zinfandel", "Malbec"];
+        var apiKey = "4f00ba5ccb8145a7abb0d9eeec8992f4";
+        var randNum = Math.floor((Math.random() * wineChoice.length));
+        //generates a random number from 0 to the length of the list - 1;
+        console.log(randNum);
+        //
+        var randomWine = wineChoice[randNum];
+        console.log(randomWine);
+        var wineUrl = "https://api.spoonacular.com/food/wine/recommendation?wine=" + randomWine + "&number=2" + "&apiKey=" + apiKey;
+        console.log(wineUrl);
+        //Fetch for paired Wine
+        fetch (wineUrl, {
+            method: 'GET',  
+            })      
+            .then(function(response) {
+            return response.json();
+            })  
+            .then(function (data) {
+            console.log(data);
+                
+                modal.style.display = "block";
+                $("#winerec").empty();
+                $("#winerec").append(
+                 "<div class='modal-body'>"
+                +  "<h2 style='color:Blue;'>" + "<b>" + " Suggested Wine 1: " + "</h2>" + "</b>" 
+                +  "<b>" + "Title: " + "</b>" + data.recommendedWines[0].title  
+                +  "<p>" + "<b>" + "Description: " + "</b>" + data.recommendedWines[0].description + "</p>"
+                +  "<p>" + "<b>" + "Price: " + "</b>" + data.recommendedWines[0].price + "</p>"  
+                +  "<div class='card-text'>" + "<img src='" + data.recommendedWines[0].imageUrl + "'>" + "<br>" + "<hr>" +"</div>"
+                + "</div>"
+                + "<div class='modal-body'>"
+                +  "<h2 style='color:Blue;'>" + "<b>" + " Suggested Wine 2: " + "</h2>" + "</b>" 
+                +  "<b>"+ "Title: " + "</b>" + data.recommendedWines[1].title 
+                +  "<p>" + "<b>" + "Description: " + "</b>" + data.recommendedWines[1].description + "</p>"
+                +  "<p>" + "<b>" + "Price: " + "</b>" + data.recommendedWines[1].price + "</p>"  
+                +  "<div class='card-text'>" + "<img src='" + data.recommendedWines[1].imageUrl + "'>" + "<br>" + "<hr>" +"</div>"
+                + "</div>"
+                + "</div>"
+                ); // End of append
+            });
+    }
 
 
 //EVENT LISTENERS -------------------------------------------------------------------------------------------------------------------------------
