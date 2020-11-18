@@ -21,7 +21,7 @@ var modalItem = document.querySelector("#item");
 var modalIngredients = document.querySelector("#ingredients");
 var modalCalories = document.querySelector("#calories");
 
-var modalImage = document.querySelector("#itemImage");
+var modalItemImage = document.querySelector(".itemImage");
 
 var modalItemDrink = document.querySelector("#itemDrink");
 var modalCaloriesDrink = document.querySelector("#caloriesDrink")
@@ -213,7 +213,7 @@ function fetchFood(food) {
         modalItem.textContent = " " + data.results[num].title;
         modalIngredients.textContent = " " + ingredientsArray;
         modalCalories.textContent = " " + data.results[num].nutrition.nutrients[0].amount;
-        modalImage.setAttribute("src", data.results[num].image);
+        modalItemImage.setAttribute("src", data.results[num].image);
 
     });
 }
