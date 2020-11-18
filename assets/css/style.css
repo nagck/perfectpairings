@@ -159,7 +159,7 @@ span.psw {
 
     margin: 10px;
     text-align: center;
-    background-color: black !important;
+    background-color: rgb(0, 0, 6, 0.9) !important;
     padding: 1% !important;
     border-radius: 100px !important;
 }
@@ -188,7 +188,7 @@ span.psw {
     
 
 .overlay,figure:hover {
-    opacity: 0.8;
+    opacity: 0.7;
     transition: all .3s ease-in-out;
 }
 
@@ -197,19 +197,19 @@ span.psw {
     
   }
 .myDiv:hover {
-    background-color: white;
+    background-color: white !important;
 }
 
 .overlay {
     position: absolute;
     text-align: center;
-    left: 12%;
-    top: 25%;
+    left: 20%;
+    top: 20%;
     opacity: 0;
-    transition: 0.1s;
+    transition: 0.01s;
     background-color: transparent;
-    font-size: 25px;
-    text-shadow: 4px 4px 7px white;
+    font-size: 55px;
+    text-shadow: 10px 10px 10px white;
     animation: yeezymove 5s infinite; 
   }
 
