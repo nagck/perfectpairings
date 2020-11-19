@@ -60,6 +60,15 @@ var foodCalories;
 function init () {
     guestPulls = localStorage.getItem("Api calls");
     //whenever the site initializes it grabs whatever is in local storage
+    if (localStorage.getItem("Username") == "Admin") {
+        document.getElementById("loginName").textContent = "You are logged in as Admin";
+    }
+    if (localStorage.getItem("Username") == "Guest") {
+        document.getElementById("loginName").textContent = "You are logged in as Guest";
+    }
+    if (localStorage.getItem("Api calls") == 0) {
+        document.getElementById("loginName").textContent = "Your free trial has ended, thanks for using Perfect Pairings!";
+    } 
 
     // if (localStorage.getItem("Api calls") == 0) {
     //     console.log("You are out of api calls")
