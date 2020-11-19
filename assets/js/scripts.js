@@ -69,8 +69,6 @@ function init () {
     //}
     document.getElementById('id01').style.display='block'; style="width:auto;"
     
-    //this code should grab whatever the value of api calls is
-    
 }
 
 //this function is called when a user selects an item from the dropdown, the choice is passed in and then this function matches the perfect drink
@@ -211,7 +209,7 @@ function drinkPair(currentDrink) {
     modalIngredients.textContent = "Ingredients: " + ""
     modalCalories.textContent = "Calories: " + "";
 
-    if (currentDrink === "Wine and Dine") {
+    if (currentDrink === "Wine") {
         fetchFood("Cheese");
     } else if (currentDrink === "Soda") {
         fetchFood("Pizza");
@@ -513,6 +511,11 @@ modalHungry.addEventListener("click", function (event) {
     drinkPair(currentDrink);
     console.log(currentDrink);
     console.log(currentFood);
+})
+
+document.getElementById("doneButton").addEventListener("click", function (event) {
+    modalMain.classList.remove("is-active");
+    modalDrinkPair.classList.remove("is-active");
 })
     
 init();
