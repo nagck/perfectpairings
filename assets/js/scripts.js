@@ -58,6 +58,7 @@ var foodCalories;
 //PRIMARY FUNCTIONS -------------------------------------------------------------------------------------------------------------------------------
 function init () {
     document.getElementById('id01').style.display='block'; style="width:auto;"
+    guestPulls = localStorage.getItem("Api calls");
     
 }
 
@@ -328,8 +329,11 @@ function fetchFood(food) {
 foodList.addEventListener("click", function (event) {
     var element = event.target;
     console.log(element.textContent)
-    modalYellow.textContent  = "Ingredients: "
-    modalGreen.textContent = "Calories: "
+    modalYellow.textContent  = "Ingredients: ";
+    modalGreen.textContent = "Calories: ";
+    if (guestPulls == 0) {
+        return;
+    }
     if (element.matches("img")) {
         console.log(element.alt);
         drinkMatch(element.alt);
@@ -340,15 +344,25 @@ foodList.addEventListener("click", function (event) {
         drinkMatch(element.textContent)
         modalMain.classList.add("is-active");
         renderGifs(element.textContent);
-    }   
+    }
+
+    if (localStorage.getItem("Username") === "Guest") {
+        console.log("You are logged in as guest")
+        guestPulls--;
+        console.log(guestPulls)
+        localStorage.setItem("Api calls", guestPulls)
+    }
     
 })
 
 
 drinkList.addEventListener("click", function (event) {
     var element = event.target;
-    modalYellow.textContent  = "ABV: "
-    modalGreen.textContent = "Calories: "
+    modalYellow.textContent  = "ABV: ";
+    modalGreen.textContent = "Calories: ";
+    if (guestPulls == 0) {
+        return;
+    }
     if (element.matches("img")) {
         console.log(element.alt);
         currentDrink = element.alt;
@@ -373,7 +387,14 @@ drinkList.addEventListener("click", function (event) {
             modalGreen.textContent = "Price: "
             wineRec();
         }
-    }   
+    }
+    if (localStorage.getItem("Username") === "Guest") {
+        console.log("You are logged in as guest")
+        guestPulls--;
+        console.log(guestPulls)
+        localStorage.setItem("Api calls", guestPulls)
+    }
+    
     
 })
 
@@ -415,6 +436,7 @@ loginButton.addEventListener("click", function (event) {
     } else if (loginUser.value.trim() === "Guest" && loginPassword.value.trim() === "123456") {
         document.getElementById('id01').style.display='none';
         localStorage.setItem("Username", "Guest");
+        localStorage.setItem("Api calls", guestPulls);
     } else {
         passwordError.setAttribute("style", "display: ");
     }
