@@ -211,12 +211,12 @@ figure {
 .overlay {
     position: absolute;
     text-align: center;
-    left: 2vw;
-    top: 2vh;
+    left: 2rem;
+    top: 2rem;
     opacity: 0;
     transition: 0.01s;
     background-color: transparent;
-    font-size: 6vw;
+    font-size: 6rem;
     text-shadow: 10px 10px 10px white;
     animation: yeezymove 5s infinite; 
   }
