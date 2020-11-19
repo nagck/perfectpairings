@@ -1,7 +1,9 @@
 //TRACKING AND TARGETING VARIABLES -------------------------------------------------------------------------------------------------------------------------------
 var currentFood;
 var currentDrink;
-//this does nothing at the moment
+
+var guestPulls;
+var adminPulls = 99999;
 
 var centerSecret = document.querySelector("#centerSecret");
 
@@ -56,8 +58,6 @@ var foodCalories;
 //PRIMARY FUNCTIONS -------------------------------------------------------------------------------------------------------------------------------
 function init () {
     document.getElementById('id01').style.display='block'; style="width:auto;"
-    localStorage.setItem("Username", "Admin");
-    localStorage.setItem("Password", "qwerty123");
     
 }
 
@@ -93,26 +93,101 @@ function foodMatch (drink) {
         modalItem.textContent = " " + popOptions[randNumberDrink].text;
         modalCalories.textContent = " " + popOptions[randNumberDrink].Calories;
         modalIngredients.textContent = " " + popOptions[randNumberDrink].ABV;
+        if (randNumberDrink == 0) {
+            document.getElementById("mainImage").src = "assets/images/Coke.jpg";
+        } else if (randNumberDrink == 1) {
+            document.getElementById("mainImage").src = "assets/images/Diet Coke.png";
+        } else if (randNumberDrink == 2) {
+            document.getElementById("mainImage").src = "assets/images/Dr. Pepper.jpg";
+        } else if (randNumberDrink == 3) {
+            document.getElementById("mainImage").src = "assets/images/Fanta.jpg";
+        } else if (randNumberDrink == 4) {
+            document.getElementById("mainImage").src = "assets/images/Pepsi.jpg";
+        } else if (randNumberDrink == 5) {
+            document.getElementById("mainImage").src = "assets/images/Sprite.jpg";
+        } else if (randNumberDrink == 6) {
+            document.getElementById("mainImage").src = "assets/images/Ginger Ale.jpg";
+        }   
     } else if (currentDrink === "Cocktails") {
         var randNumberDrink = Math.floor((Math.random() * cocktailOptions.length));
         modalItem.textContent = " " + cocktailOptions[randNumberDrink].text;
         modalCalories.textContent = " " + cocktailOptions[randNumberDrink].Calories;
         modalIngredients.textContent = " " + cocktailOptions[randNumberDrink].ABV;
+        if (randNumberDrink == 0) {
+            document.getElementById("mainImage").src = "assets/images/Mojito.jpg";
+        } else if (randNumberDrink == 1) {
+            document.getElementById("mainImage").src = "assets/images/Sangria.jpg";
+        } else if (randNumberDrink == 2) {
+            document.getElementById("mainImage").src = "assets/images/Pina Colada.jpg";
+        } else if (randNumberDrink == 3) {
+            document.getElementById("mainImage").src = "assets/images/Cosmopolitan.jpg";
+        } else if (randNumberDrink == 4) {
+            document.getElementById("mainImage").src = "assets/images/Martini.jpg";
+        } else if (randNumberDrink == 5) {
+            document.getElementById("mainImage").src = "assets/images/Manhattan.jpg";
+        } else if (randNumberDrink == 6) {
+            document.getElementById("mainImage").src = "assets/images/Margarita.jpg";
+        }
     }  else if (currentDrink === "Hard Liquor") {
         var randNumberDrink = Math.floor((Math.random() * liquorOptions.length));
         modalItem.textContent = " " + liquorOptions[randNumberDrink].text;
         modalCalories.textContent = " " + liquorOptions[randNumberDrink].Calories;
         modalIngredients.textContent = " " + liquorOptions[randNumberDrink].ABV;
+        if (randNumberDrink == 0) {
+            document.getElementById("mainImage").src = "assets/images/champange.jpg";
+        } else if (randNumberDrink == 1) {
+            document.getElementById("mainImage").src = "assets/images/Vodka.jpg";
+        } else if (randNumberDrink == 2) {
+            document.getElementById("mainImage").src = "assets/images/Gin.png";
+        } else if (randNumberDrink == 3) {
+            document.getElementById("mainImage").src = "assets/images/Rum.jpg";
+        } else if (randNumberDrink == 4) {
+            document.getElementById("mainImage").src = "assets/images/Whiskey.jpg";
+        } else if (randNumberDrink == 5) {
+            document.getElementById("mainImage").src = "assets/images/Scotch.jpg";
+        } else if (randNumberDrink == 6) {
+            document.getElementById("mainImage").src = "assets/images/Brandy.jpg";
+        }
     }   else if (currentDrink === "Beer") {
         var randNumberDrink = Math.floor((Math.random() * beerOptions.length));
         modalItem.textContent = " " + beerOptions[randNumberDrink].text;
         modalCalories.textContent = " " + beerOptions[randNumberDrink].Calories;
         modalIngredients.textContent = " " + beerOptions[randNumberDrink].ABV;
+        if (randNumberDrink == 0) {
+            document.getElementById("mainImage").src = "assets/images/Budlight.jpg";
+        } else if (randNumberDrink == 1) {
+            document.getElementById("mainImage").src = "assets/images/corona beer.jpg";
+        } else if (randNumberDrink == 2) {
+            document.getElementById("mainImage").src = "assets/images/Miller lite.jpg";
+        } else if (randNumberDrink == 3) {
+            document.getElementById("mainImage").src = "assets/images/modelo.jpg";
+        } else if (randNumberDrink == 4) {
+            document.getElementById("mainImage").src = "assets/images/heineken.jpg";
+        } else if (randNumberDrink == 5) {
+            document.getElementById("mainImage").src = "assets/images/Stella.jpg";
+        } else if (randNumberDrink == 6) {
+            document.getElementById("mainImage").src = "assets/images/dos equis.jpg";
+        }
     }   else if (currentDrink === "Smoothies") {
         var randNumberDrink = Math.floor((Math.random() * smoothieOptions.length));
         modalItem.textContent = " " + smoothieOptions[randNumberDrink].text;
         modalCalories.textContent = " " + smoothieOptions[randNumberDrink].Calories;
         modalIngredients.textContent = " " + smoothieOptions[randNumberDrink].ABV;
+        if (randNumberDrink == 0) {
+            document.getElementById("mainImage").src = "assets/images/Strawberry banana.jpg";
+        } else if (randNumberDrink == 1) {
+            document.getElementById("mainImage").src = "assets/images/blueberry smoothie.jpg";
+        } else if (randNumberDrink == 2) {
+            document.getElementById("mainImage").src = "assets/images/pineapplesmoothie.jpg";
+        } else if (randNumberDrink == 3) {
+            document.getElementById("mainImage").src = "assets/images/Peanut smoothie.jpg";
+        } else if (randNumberDrink == 4) {
+            document.getElementById("mainImage").src = "assets/images/green smoothie.jpg";
+        } else if (randNumberDrink == 5) {
+            document.getElementById("mainImage").src = "assets/images/chocolate smoothie.jpg";
+        } else if (randNumberDrink == 6) {
+            document.getElementById("mainImage").src = "assets/images/berry smoothie.jpg";
+        }
     }
     
     modalThirsty.setAttribute("style", "display: none ");
@@ -165,7 +240,7 @@ var apiKeyNagesh = "9106359dad954cc8820fb65a7927d657";
 var foodChoice = "Sushi";
 var wineUrl = "https://api.spoonacular.com/food/wine/pairing?food=" + foodChoice + "&apiKey=" + apiKeyNagesh;
 
-//Spoonacular API for food menu item - this function is called when a user selects a food type, the function finds menu items from over 800 fast food and chain restaurants
+
 // var apiKeyNagesh = "9106359dad954cc8820fb65a7927d657";
 // var apiKeyNagesh2 = "4f00ba5ccb8145a7abb0d9eeec8992f4";
 var apiKeyChris = "2fe6c814325d4bf690bbef8390f08a9c";
@@ -174,7 +249,7 @@ var apiKeyPieter = "d0654c3acc06487db8a7962773177457";
 
 var apiList = [apiKeyChris, apiKeyKevin, apiKeyPieter];
 
-
+//Spoonacular API for food menu item - this function is called when a user selects a food type, the function finds food related to query
 function fetchFood(food) {
     var randNum = Math.floor((Math.random() * apiList.length));
     //generates a random number from 0 to the length of the list - 1;
@@ -183,9 +258,7 @@ function fetchFood(food) {
     var randomApi = apiList[randNum];
     console.log(randomApi);
     var foodMenuChoice = food;
-    // var foodMenuUrl = "https://api.spoonacular.com/food/menuItems/search?query=" + foodMenuChoice + "&number=3" + "&apiKey=" + apiKeyChris;
     var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + foodMenuChoice + "&fillIngredients=true" + "&maxCalories=1500" + "&number=3" + "&apiKey=" + randomApi;
-    // var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2" + "&apiKey=" + apiKeyChris;
     
     console.log(foodItemUrl);
     //Fetch for Food Menu
@@ -335,12 +408,13 @@ gifCloseButton.addEventListener("click", function (event) {
 loginButton.addEventListener("click", function (event) {
     event.preventDefault();
     
-    console.log(loginUser.value.trim());
-    console.log(loginPassword.value.trim());
-    // if (loginUser.value.trim() === "Admin" && loginPassword.value.trim() === "Admin") {
-    //     document.getElementById('id01').style.display='none';
-    if (loginUser.value.trim() === localStorage.getItem("Username") && loginPassword.value.trim() === localStorage.getItem("Password")) {
+    if (loginUser.value.trim() === "Admin" && loginPassword.value.trim() === "Apostol99") {
         document.getElementById('id01').style.display='none';
+        localStorage.setItem("Username", "Admin");
+
+    } else if (loginUser.value.trim() === "Guest" && loginPassword.value.trim() === "123456") {
+        document.getElementById('id01').style.display='none';
+        localStorage.setItem("Username", "Guest");
     } else {
         passwordError.setAttribute("style", "display: ");
     }
