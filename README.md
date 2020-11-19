@@ -3,12 +3,13 @@
 Ever scrolled through ubereats, foodora or ritual and couldn't make a decision you needed a drink?
 
 PerfectPairings will provide you with delicious food options and pair your selection with the perfect drink
-## Link to deployed website:
-https://nagck.github.io/perfectpairings/
 
 Still not convinced? A GIF will Convince!
 
 ![Food and wine](https://media.giphy.com/media/xVRbjFeqPEJRQkF7wA/giphy.gif)
+
+### Link to deployed website:
+https://nagck.github.io/perfectpairings/
 
 # Table of Contents
 * [Team Members](#team-members)
