@@ -361,6 +361,7 @@ drinkList.addEventListener("click", function (event) {
     modalYellow.textContent  = "ABV: ";
     modalGreen.textContent = "Calories: ";
     if (guestPulls == 0) {
+        document.getElementById("loginName").textContent = "Your free trial has ended, thanks for using Perfect Pairings!";
         return;
     }
     if (element.matches("img")) {
@@ -433,11 +434,14 @@ loginButton.addEventListener("click", function (event) {
         document.getElementById('id01').style.display='none';
         localStorage.setItem("Username", "Admin");
         localStorage.setItem("Api calls", 1000);
+        document.getElementById("loginName").textContent = "You are logged in as Admin";
 
     } else if (loginUser.value.trim() === "Guest" && loginPassword.value.trim() === "123456") {
         document.getElementById('id01').style.display='none';
         localStorage.setItem("Username", "Guest");
         localStorage.setItem("Api calls", guestPulls);
+        guestPulls = localStorage.getItem("Api calls");
+        document.getElementById("loginName").textContent = "You are logged in as Guest";
     } else {
         passwordError.setAttribute("style", "display: ");
     }
