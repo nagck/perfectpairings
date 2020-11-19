@@ -2,6 +2,7 @@
 var currentFood;
 var currentDrink;
 
+var startingPulls = 3;
 var guestPulls;
 var adminPulls = 99999;
 
@@ -57,8 +58,18 @@ var foodCalories;
 
 //PRIMARY FUNCTIONS -------------------------------------------------------------------------------------------------------------------------------
 function init () {
-    document.getElementById('id01').style.display='block'; style="width:auto;"
     guestPulls = localStorage.getItem("Api calls");
+    // if (localStorage.getItem("Api calls") == 0) {
+    //     console.log("You are out of api calls")
+    //     document.getElementById("userName").style.display="none";
+    //     document.getElementById("userPassword").style.display="none";
+    //     document.getElementById("loginButton").style.display="none";
+    //     document.getElementById("trialOver").style.display="block";
+    //     document.getElementById("trialOver").style.color="black";
+    //}
+    document.getElementById('id01').style.display='block'; style="width:auto;"
+    
+    //this code should grab whatever the value of api calls is
     
 }
 
@@ -332,6 +343,7 @@ foodList.addEventListener("click", function (event) {
     modalYellow.textContent  = "Ingredients: ";
     modalGreen.textContent = "Calories: ";
     if (guestPulls == 0) {
+        document.getElementById("loginName").textContent = "Your free trial has ended, thanks for using Perfect Pairings!";
         return;
     }
     if (element.matches("img")) {
@@ -439,7 +451,12 @@ loginButton.addEventListener("click", function (event) {
     } else if (loginUser.value.trim() === "Guest" && loginPassword.value.trim() === "123456") {
         document.getElementById('id01').style.display='none';
         localStorage.setItem("Username", "Guest");
-        localStorage.setItem("Api calls", guestPulls);
+        if (localStorage.getItem("Api calls") == null) {
+            localStorage.setItem("Api calls", 3);
+        } else {
+            localStorage.setItem("Api calls", guestPulls);
+        }
+        
         guestPulls = localStorage.getItem("Api calls");
         document.getElementById("loginName").textContent = "You are logged in as Guest";
     } else {
