@@ -432,6 +432,7 @@ loginButton.addEventListener("click", function (event) {
     if (loginUser.value.trim() === "Admin" && loginPassword.value.trim() === "Apostol99") {
         document.getElementById('id01').style.display='none';
         localStorage.setItem("Username", "Admin");
+        localStorage.setItem("Api calls", 1000);
 
     } else if (loginUser.value.trim() === "Guest" && loginPassword.value.trim() === "123456") {
         document.getElementById('id01').style.display='none';
