@@ -1,6 +1,6 @@
 
 body {
-    background-image: url(https://i.postimg.cc/66nb2WZM/patrick-tomasso-GXXYk-Swnd-P4-unsplash.jpg);
+    background-image: url(https://i.postimg.cc/6qMRyFVg/patrick-tomasso-GXXYk-Swnd-P4-unsplash.jpg);
 }
 
 /* Full-width input fields */
@@ -55,7 +55,7 @@ img.avatar {
     width: 40%;
     border-radius: 50%;
 }
-  
+
 .container {
     padding: 16px;
 }
@@ -186,10 +186,20 @@ span.psw {
     flex-direction: column;
 }
     
+.myDIV {
+    opacity: 0.8 !important;
+    
+}
 
-.overlay,figure:hover {
-    opacity: 0.7;
+figure:hover {
+    opacity: 2.2;
     transition: all .3s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    border-radius: 300px !important;
+}
+
+figure {
+    background-color: transparent !important;
 }
 
 .overlay:hover {
@@ -197,7 +207,7 @@ span.psw {
     
   }
 .myDiv:hover {
-    background-color: white !important;
+    
 }
 
 .overlay {
