@@ -59,6 +59,17 @@ var foodCalories;
 //PRIMARY FUNCTIONS -------------------------------------------------------------------------------------------------------------------------------
 function init () {
     guestPulls = localStorage.getItem("Api calls");
+    //whenever the site initializes it grabs whatever is in local storage
+    if (localStorage.getItem("Username") == "Admin") {
+        document.getElementById("loginName").textContent = "You are logged in as Admin";
+    }
+    if (localStorage.getItem("Username") == "Guest") {
+        document.getElementById("loginName").textContent = "You are logged in as Guest";
+    }
+    if (localStorage.getItem("Api calls") == 0) {
+        document.getElementById("loginName").textContent = "Your free trial has ended, thanks for using Perfect Pairings!";
+    } 
+
     // if (localStorage.getItem("Api calls") == 0) {
     //     console.log("You are out of api calls")
     //     document.getElementById("userName").style.display="none";
@@ -355,11 +366,12 @@ foodList.addEventListener("click", function (event) {
         modalMain.classList.add("is-active");
         renderGifs(element.textContent);
     }
-
+    //if you have signed in as a guest, we subtract one from total pulls everytime you get a food pairing
     if (localStorage.getItem("Username") === "Guest") {
         console.log("You are logged in as guest")
         guestPulls--;
         console.log(guestPulls)
+    //then update the local storage
         localStorage.setItem("Api calls", guestPulls)
     }
     
@@ -450,12 +462,16 @@ loginButton.addEventListener("click", function (event) {
         document.getElementById('id01').style.display='none';
         localStorage.setItem("Username", "Guest");
         if (localStorage.getItem("Api calls") == null) {
+            //checks if its null, which it will be if its your first time logging in
             localStorage.setItem("Api calls", 3);
+            //then gives the guest their 3 free api fetches
         } else {
+            //otherwise it means you have logged in before so we just set your pulls to whatever you were at before
             localStorage.setItem("Api calls", guestPulls);
         }
         
         guestPulls = localStorage.getItem("Api calls");
+        //again updating our tracking variable
         document.getElementById("loginName").textContent = "You are logged in as Guest";
     } else {
         passwordError.setAttribute("style", "display: ");
