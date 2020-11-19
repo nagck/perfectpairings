@@ -261,6 +261,11 @@ foodList.addEventListener("click", function (event) {
         drinkMatch(element.alt);
         modalMain.classList.add("is-active");
         renderGifs(element.alt);
+    }
+    if (element.classList.contains("foodCat")) {
+        drinkMatch(element.textContent)
+        modalMain.classList.add("is-active");
+        renderGifs(element.textContent);
     }   
     
 })
@@ -282,6 +287,19 @@ drinkList.addEventListener("click", function (event) {
             wineRec();
         } 
     }
+    if (element.classList.contains("foodCat")) {
+        console.log(element.textContent)
+        currentDrink = element.textContent;
+        foodMatch(element.textContent)
+        modalMain.classList.add("is-active");
+        renderGifs(element.textContent);
+        if (element.textContent == "Wine") {
+            console.log("YUP")
+            modalYellow.textContent  = "Description: "
+            modalGreen.textContent = "Price: "
+            wineRec();
+        }
+    }   
     
 })
 
