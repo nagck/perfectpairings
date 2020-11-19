@@ -3,7 +3,7 @@
 Ever scrolled through ubereats, foodora or ritual and couldn't make a decision you needed a drink?
 
 PerfectPairings will provide you with delicious food options and pair your selection with the perfect drink
-
+## Link to deployed website:
 https://nagck.github.io/perfectpairings/
 
 Still not convinced? A GIF will Convince!
@@ -43,7 +43,7 @@ JOIN THE FEW, THE PROUD..........THE MEMBERS OF PERFECT..............PAIRING AND
 You may navigate to each block of content individually by clicking the elements on the navigation bar located at the top of the page
   
   
-![Screenshot](perfectpairings\assets\images\screenshot.JPG)
+![Screenshot](assets/images/screenshot.JPG)
 
 # Codes and Sources
 
@@ -61,6 +61,7 @@ Font awesome: https://use.fontawesome.com/releases/v5.14.0/js/all.js
 # API's used
 
 Spoonacular - https://spoonacular.com/food-api
+
 Giphy - https://developers.giphy.com/
 
 ## License
