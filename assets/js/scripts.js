@@ -22,6 +22,7 @@ var modalIngredients = document.querySelector("#ingredients");
 var modalCalories = document.querySelector("#calories");
 
 var modalItemImage = document.querySelector(".itemImage");
+var modalDrinkImage = document.querySelectorAll(".drinkImage");
 
 var modalItemDrink = document.querySelector("#itemDrink");
 var modalCaloriesDrink = document.querySelector("#caloriesDrink")
@@ -354,31 +355,37 @@ modalThirsty.addEventListener("click", function (event) {
     // modalMain.classList.remove("is-active");
     var element = event.target;
     modalDrinkPair.classList.add("is-active");
-    if (currentFood === "Mexican food") {
+    if (currentFood === "Tacos") {
         //pull multiple drink options later to randomize
         modalItemDrink.textContent = beerOptions[1].text;
         modalCaloriesDrink.textContent = beerOptions[1].Calories;
         modalAbvDrink.textContent = beerOptions[1].ABV;
-    } else if (currentFood == "Sushi") {
+        document.getElementById("myImage").src = "assets/images/corona beer.jpg";
+    } else if (currentFood == "Mediterranean") {
         modalItemDrink.textContent = beerOptions[4].text;
         modalCaloriesDrink.textContent = beerOptions[4].Calories;
         modalAbvDrink.textContent = beerOptions[4].ABV;
+        document.getElementById("myImage").src = "assets/images/heineken.png";
     } else if (currentFood == "Pizza") {
         modalItemDrink.textContent = popOptions[1].text;
         modalCaloriesDrink.textContent = popOptions[1].Calories;
         modalAbvDrink.textContent = popOptions[1].ABV;
+        document.getElementById("myImage").src = "assets/images/Coke.jpg";
     } else if (currentFood == "Burgers") {
         modalItemDrink.textContent = cocktailOptions[0].text;
-        modalCaloriesDrink.textContent = wineOptions[0].Calories;
-        modalAbvDrink.textContent = wineOptions[0].ABV;
+        modalCaloriesDrink.textContent = cocktailOptions[0].Calories;
+        modalAbvDrink.textContent = cocktailOptions[0].ABV;
+        document.getElementById("myImage").src = "assets/images/Mojito.jpg";
     } else if (currentFood == "Chinese food") {
         modalItemDrink.textContent = liquorOptions[4].text;
         modalCaloriesDrink.textContent = liquorOptions[4].Calories;
         modalAbvDrink.textContent = liquorOptions[4].ABV;
+        document.getElementById("myImage").src = "assets/images/Whiskey.jpg";
     } else if (currentFood == "Dessert") {
         modalItemDrink.textContent = smoothieOptions[0].text;
         modalCaloriesDrink.textContent = smoothieOptions[0].Calories;
         modalAbvDrink.textContent = smoothieOptions[0].ABV;
+        document.getElementById("myImage").src = "assets/images/Strawberry banana.jpg";
     }
 })
 
