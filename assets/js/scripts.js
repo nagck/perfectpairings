@@ -353,8 +353,7 @@ foodList.addEventListener("click", function (event) {
     modalGreen.textContent = "Calories: ";
     if (guestPulls == 0) {
         $(document).scrollTop(0);
-        document.getElementById("loginName").textContent = "Your free trial has ended, thanks for using Perfect Pairings!";
-        $("#loginName").toggleClass("glow");
+        document.getElementById("loginName").textContent = "Your free trial has ended, thanks for using Perfect Pairings!";        $("#loginName").addClass("glow");
         return;
     }
     if (element.matches("img")) {
@@ -387,7 +386,7 @@ drinkList.addEventListener("click", function (event) {
     if (guestPulls == 0) {
         $(document).scrollTop(0);
         document.getElementById("loginName").textContent = "Your free trial has ended, thanks for using Perfect Pairings!";
-        $("#loginName").toggleClass("glow");
+        $("#loginName").addClass("glow");
         return;
     }
     if (element.matches("img")) {
