@@ -164,17 +164,14 @@ var apiKeyNagesh = "9106359dad954cc8820fb65a7927d657";
 var foodChoice = "Sushi";
 var wineUrl = "https://api.spoonacular.com/food/wine/pairing?food=" + foodChoice + "&apiKey=" + apiKeyNagesh;
 
-// QueryURL to get Wine Pairing 
-console.log("Food Choice is: ", foodChoice);  
-
 //Spoonacular API for food menu item - this function is called when a user selects a food type, the function finds menu items from over 800 fast food and chain restaurants
-var apiKeyNagesh = "9106359dad954cc8820fb65a7927d657";
-var apiKeyNagesh2 = "4f00ba5ccb8145a7abb0d9eeec8992f4";
+// var apiKeyNagesh = "9106359dad954cc8820fb65a7927d657";
+// var apiKeyNagesh2 = "4f00ba5ccb8145a7abb0d9eeec8992f4";
 var apiKeyChris = "2fe6c814325d4bf690bbef8390f08a9c";
 var apiKeyKevin = "053c20d29c3d4bcba7deb8dbf8b40b1d";
 var apiKeyPieter = "d0654c3acc06487db8a7962773177457";
 
-var apiList = [apiKeyChris, apiKeyKevin, apiKeyNagesh, apiKeyNagesh2, apiKeyPieter];
+var apiList = [apiKeyChris, apiKeyKevin, apiKeyPieter];
 
 
 function fetchFood(food) {
@@ -216,116 +213,6 @@ function fetchFood(food) {
     });
 }
 
-// function fetchDrink(drink) {
-//     var randNum = Math.floor((Math.random() * apiList.length));
-//     console.log(randNum);
-//     //
-//     var randomApi = apiList[randNum]
-//     console.log(randomApi);
-//     var drinkMenuChoice = drink;
-//     // var foodMenuUrl = "https://api.spoonacular.com/food/menuItems/search?query=" + foodMenuChoice + "&number=3" + "&apiKey=" + apiKeyChris;
-//     var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=" + drinkMenuChoice + "&maxCalories=1500" + "&type=beverage" + "&number=3" + "&apiKey=" + randomApi;
-//     // var foodItemUrl = "https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2" + "&apiKey=" + apiKeyChris;
-    
-//     console.log(foodItemUrl);
-//     //Fetch for Food Menu
-//     fetch (foodItemUrl, {
-//     method: 'GET',  
-//     })      
-//     .then(function(response) {
-//     return response.json();
-//     })  
-//     .then(function (data) {
-//         var num = Math.floor((Math.random() * 3));
-//         //generates a random number from 0 - 2;
-//         console.log(data);
-//         console.log(num)
-
-//     });
-// }
-
-// function winePair() {
-//     console.log(wineUrl);
-//     //Fetch for paired Wine
-//     fetch (wineUrl, {
-//         method: 'GET',  
-//         })      
-//         .then(function(response) {
-//         return response.json();
-//         })  
-//         .then(function (data) {
-//         console.log(data);
-//             if (foodChoice === "Steak") {
-//                 $("#winepair").empty();
-//                 $("#winepair").append(
-//                     "<div class='tbd'>"
-//                     +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
-//                     +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
-//                     +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
-//                     +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
-//                     +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
-//                     +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
-//                     + "</div>"
-//                 ); // End of append
-//             }
-//             if (foodChoice === "Wings") {
-//                 $("#winepair").empty();
-//                 $("#winepair").append(
-//                     "<div class='tbd'>"
-//                         +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
-//                         +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
-//                         +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
-//                         +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
-//                         +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
-//                         +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
-//                         + "</div>"
-//                 ); // End of append
-                
-//             }
-//             if (foodChoice === "Burrito") {
-//                 $("#winepair").empty();
-//                 $("#winepair").append(
-//                     "<div class='tbd'>"
-//                         +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
-//                         +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
-//                         +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
-//                         +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
-//                         +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
-//                         +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
-//                         + "</div>"
-//                 ); // End of append
-                
-//             }
-//             if (foodChoice === "Sushi") {
-//                 $("#winepair").empty();
-//                 $("#winepair").append(
-//                     "<div class='tbd'>"
-//                     +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
-//                     +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
-//                     +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
-//                     +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
-//                     +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
-//                     +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
-//                     + "</div>"
-//                 ); // End of append
-                
-//             }
-//             if (foodChoice === "Cheese") {
-//                 $("#winepair").empty();
-//                 $("#winepair").append(
-//                     "<div class='tbd'>"
-//                     +  "<h2>" + "<b>" + foodChoice + " pairs well with: " + "</h2>" + "</b>" 
-//                     +  "<ul>" + data.pairedWines[0] + " OR" + "</ul>"
-//                     +  "<ul>" + data.pairedWines[1] + " OR" + "</ul>"
-//                     +  "<ul>" + data.pairedWines[2] + "</ul>" + "<br>"
-//                     +  "<p>" + "<b>" + "Brief Description: " + "</b>" + data.pairingText + "</p>" + "<br>"
-//                     +  "<p>" + "<b>" + "Average Price in USD: " + "</b>" + data.productMatches[0].price + "</p>"
-//                     + "</div>"
-//                 ); // End of append
-                
-//             }
-//         });
-
 // This function is called when user selects wine recommendation
     function wineRec() {
         var randomNum = Math.floor((Math.random() * apiList.length));
@@ -334,7 +221,6 @@ function fetchFood(food) {
     //
         var randomApi = apiList[randomNum];
         var wineChoice = ["Merlot", "Chardonnay", "Riesling", "Zinfandel", "Malbec"];
-        var apiKey = "4f00ba5ccb8145a7abb0d9eeec8992f4";
         var randNum = Math.floor((Math.random() * wineChoice.length));
         //generates a random number from 0 to the length of the list - 1;
         console.log(randNum);
@@ -359,27 +245,6 @@ function fetchFood(food) {
             modalCalories.textContent = " " + data.recommendedWines[num].price;
             modalItemImage.setAttribute("src", data.recommendedWines[num].imageUrl);
 
-
-                
-                // modal.style.display = "block";
-                // $("#winerec").empty();
-                // $("#winerec").append(
-                //  "<div class='modal-body'>"
-                // +  "<h2 style='color:Blue;'>" + "<b>" + " Suggested Wine 1: " + "</h2>" + "</b>" 
-                // +  "<b>" + "Title: " + "</b>" + data.recommendedWines[0].title  
-                // +  "<p>" + "<b>" + "Description: " + "</b>" + data.recommendedWines[0].description + "</p>"
-                // +  "<p>" + "<b>" + "Price: " + "</b>" + data.recommendedWines[0].price + "</p>"  
-                // +  "<div class='card-text'>" + "<img src='" + data.recommendedWines[0].imageUrl + "'>" + "<br>" + "<hr>" +"</div>"
-                // + "</div>"
-                // + "<div class='modal-body'>"
-                // +  "<h2 style='color:Blue;'>" + "<b>" + " Suggested Wine 2: " + "</h2>" + "</b>" 
-                // +  "<b>"+ "Title: " + "</b>" + data.recommendedWines[1].title 
-                // +  "<p>" + "<b>" + "Description: " + "</b>" + data.recommendedWines[1].description + "</p>"
-                // +  "<p>" + "<b>" + "Price: " + "</b>" + data.recommendedWines[1].price + "</p>"  
-                // +  "<div class='card-text'>" + "<img src='" + data.recommendedWines[1].imageUrl + "'>" + "<br>" + "<hr>" +"</div>"
-                // + "</div>"
-                // + "</div>"
-                // ); // End of append
             });
     }
 
@@ -388,6 +253,7 @@ function fetchFood(food) {
 
 foodList.addEventListener("click", function (event) {
     var element = event.target;
+    console.log(element.textContent)
     modalYellow.textContent  = "Ingredients: "
     modalGreen.textContent = "Calories: "
     if (element.matches("img")) {
@@ -398,6 +264,7 @@ foodList.addEventListener("click", function (event) {
     }   
     
 })
+
 
 drinkList.addEventListener("click", function (event) {
     var element = event.target;
@@ -483,9 +350,9 @@ modalThirsty.addEventListener("click", function (event) {
         modalCaloriesDrink.textContent = popOptions[1].Calories;
         modalAbvDrink.textContent = popOptions[1].ABV;
     } else if (currentFood == "Burgers") {
-        modalItemDrink.textContent = wineOptions[4].text;
-        modalCaloriesDrink.textContent = wineOptions[4].Calories;
-        modalAbvDrink.textContent = wineOptions[4].ABV;
+        modalItemDrink.textContent = cocktailOptions[0].text;
+        modalCaloriesDrink.textContent = wineOptions[0].Calories;
+        modalAbvDrink.textContent = wineOptions[0].ABV;
     } else if (currentFood == "Chinese food") {
         modalItemDrink.textContent = liquorOptions[4].text;
         modalCaloriesDrink.textContent = liquorOptions[4].Calories;
@@ -504,13 +371,5 @@ modalHungry.addEventListener("click", function (event) {
     console.log(currentDrink);
     console.log(currentFood);
 })
-
-// centerSecret.addEventListener("mouseover", function (event) {
-//     var element = event.target;
-//     console.log(element);
-//     secretText.setAttribute("style", "display: block");
-    
-// });
-
     
 init();
