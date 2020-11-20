@@ -229,7 +229,7 @@ function drinkPair(currentDrink) {
     } else if (currentDrink === "Hard Liquor") {
         fetchFood("Chinese food")
     } else if (currentDrink === "Beer") {
-        fetchFood("Mexican Food")
+        fetchFood("Tacos")
     } else if (currentDrink === "Smoothies") {
         fetchFood("Desserts");
     }
